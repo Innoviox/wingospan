@@ -9,14 +9,10 @@ const (
 	Berry
 )
 
-type Bonus struct {
-
-}
-
-type Birdfeeder struct {
-
-}
-
-type Goal struct {
-
-}
+type Nest int // todo
+const (
+	Platform Nest = iota
+	Cup
+	Rocks
+	Canada
+)
