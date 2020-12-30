@@ -15,4 +15,12 @@ const (
 	Cup
 	Rocks
 	Canada
+	Star
+)
+
+type Region int
+const ( // todo right names
+	Forest Region = iota
+	Grasslands
+	Waterlands
 )
