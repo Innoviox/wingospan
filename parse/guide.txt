@@ -43,31 +43,36 @@ A - all players, starting with player of your choice
 t - trade (A for A)
 - - remove
 
-1 - cache
-2 - optionally cache
-3 - hunt
-4 - tuck
-5 - tuck from deck
-6 - gain from birdfeeder
-7 - gain all from birdfeeder
-8 - gain from supply
-9 - play second bird
-0 - bonus
-A - draw card
-B - draw tray card
-C - repeat brown power
-D - repeat hunter power
-E - lay an egg on this bird
-F - lay an egg on another bird
-G - lay an egg on any bird
-H - lay an egg on each bird
-I - move if rightmost
-J - roll outside dice
-K - players with the fewest
-L - all players, starting with player of your choice
-M - trade A for A
-N - discard (card)
-O - discard an egg from this bird
-P - discard an egg from another bird
-Q - discard at the end of your turn
-R - discard (food)
+A - cache
+B - optionally cache
+C - hunt
+D - tuck
+E - tuck from deck
+F - gain from birdfeeder
+G - gain all from birdfeeder
+H - gain from supply
+I - play second bird
+J - bonus
+K - draw card
+L - draw tray card
+M - repeat brown power
+N - repeat hunter power
+O - lay an egg on this bird
+P - lay an egg on another bird
+Q - lay an egg on any bird
+R - lay an egg on each bird
+S - move if rightmost
+T - roll outside dice
+U - players with the fewest
+V - all players, starting with player of your choice
+W - trade A for A
+X - discard (card)
+Y - discard an egg from this bird
+Z - discard an egg from another bird
+a - discard at the end of your turn
+b - discard (food)
+c - lay egg (action)
+d - discard an egg from any bird
+e - plays a bird (action)
+f - gains a food (action)
+g - successful hunt (action)
