@@ -6,11 +6,13 @@ Action names
 	P: play bird
 		Px: played bird in zone
 	F: gain food
+		Fx: if they gain x
 	L: lay eggs
 	D: draw cards
 
 C - cache
 	C?: optionally cache
+	Cx: cache an x
 H - hunt
 	Hx: hunt for <x bird => tuck
 T - tuck
@@ -26,6 +28,8 @@ D - draw card
 	Dx: draw x cards
 	Dt: draw card from tray
 R - repeat action in same row
+	Rx: repeat type of power (Rt/Rh)
+	(default: repeat brown power)
 E - lay an egg
 	Ex: on a nest
 		Exe: on each nest
@@ -37,3 +41,4 @@ r - roll outside dice
 W - players with the fewest x birds
 - - remove
 A - all players, starting with player of your choice
+t - trade (A for A)
