@@ -1,0 +1,36 @@
+A: Activated (brown) ability
+P: on play
+O: once between turns
+
+Action names
+	P: play bird
+	F: gain food
+	L: lay eggs
+	D: draw cards
+
+C - cache
+	C?: optionally cache
+H - hunt
+	Hx: hunt for <x bird => tuck 1 from deck
+T - tuck
+	Td: tuck from deck
+B - gain from birdfeeder
+	Bx: gain x inf available
+G - gain from supply
+
+P - play second bird in same zone
+O - draw 2 bonus cards; keep 1
+D - draw card
+	Dx: draw x cards
+	Dt: draw card from tray
+R - repeat action in same row
+E - lay an egg
+	Ex: on a nest
+	Ex~: on another
+	Ex!: on any
+M - if rightmost, move
+r - roll outside dice
+	rx: if rolled an x
+W - players with the fewest x birds
+- - remove
+

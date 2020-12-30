@@ -1,181 +1,181 @@
 Name,Region,Cost,Points,Nest,Eggs,Wingspan,Action
-Acorn Woodpecker,0,1+1+1,5,3,4,46,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-American Avocet,2,0+0+1,6,2,2,79,"When another player takes the ""lay eggs"" action, this bird lays 1 on another bird with a nest."
-American Bittern,2,0+2+3,7,0,2,107,Player(s) with the fewest birds: draw 1 .
-American Coot,2,1+A,3,0,5,61,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-American Crow,0/1/2,A,4,0,2,99,Discard 1 from any of your other birds to gain 1 from the supply.
-American Goldﬁnch,1,1+1,3,1,3,23,Gain 3 from the supply.
-American Kestrel,1,0+3,5,3,3,56,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-American Oystercatcher,2,0+0,5,2,2,81,"Draw equal to the number of players +1. Starting with you and proceeding clockwise, each player selects 1 of those cards and places it in their hand. You keep the extra card."
-American Redstart,0,0+4,4,1,4,20,Gain 1 from the birdfeeder.
-American Robin,0/1,0/4,1,1,4,43,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-American White Pelican,2,2+2,5,2,1,274,Discard a to tuck 2 from the deck behind this bird.
+Acorn Woodpecker,0,1+1+1,5,3,4,46,A{G1}=>{C?}
+American Avocet,2,0+0+1,6,2,2,79,O{L}=>{E~2}
+American Bittern,2,0+2+3,7,0,2,107,A{W2}=>{D}
+American Coot,2,1+A,3,0,5,61,A{T}=>{D}
+American Crow,0/1/2,A,4,0,2,99,A{-~E}=>{GA}
+American Goldﬁnch,1,1+1,3,1,3,23,P{G1;G1;G1}
+American Kestrel,1,0+3,5,3,3,56,A{r3}=>{C}
+American Oystercatcher,2,0+0,5,2,2,81,TODO
+American Redstart,0,0+4,4,1,4,20,A{B}
+American Robin,0/1,0/4,1,1,4,43,A{T}=>{D}
+American White Pelican,2,2+2,5,2,1,274,A{-2}=>{Td;Td}
 American Woodcock,0/1,0+0+1,9,2,2,46,
-Anhinga,2,2+2,6,0,2,114,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Anna’s Hummingbird,0/1/2,A,4,1,2,13,"Each player gains 1 from the birdfeeder, starting with the player of your choice."
-Ash-Throated Flycatcher,1,0+0+4,4,3,4,30,Lay 1 on each of your birds with a nest.
-Atlantic Pufﬁn,2,2+2+2,8,4,1,53,Draw 2 new bonus cards and keep 1.
-Baird’s Sparrow,1,0+1,3,2,2,23,Lay 1 on any bird.
-Bald Eagle,2,2+2+3,9,0,1,203,Gain all that are in the birdfeeder.
-Baltimore Oriole,0,0+4+4,9,4,2,30,All players gain 1 from the supply.
-Barn Owl,0/1/2,3+3,5,3,4,107,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Barn Swallow,1/2,0,1,4,3,38,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-Barred Owl,0,3,3,3,2,107,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Barrow’s Goldeneye,2,0+1+2,5,3,4,71,"When another player takes the ""lay eggs"" action, this bird lays 1 on another bird with a nest."
-Bell’s Vireo,0/1,0+0,4,4,2,18,Draw 2 new bonus cards and keep 1.
-Belted Kingﬁsher,2,2+A,4,4,4,53,"When another player plays a bird, gain 1 from the supply."
-Bewick’s Wren,0/1/2,0+0+1,4,3,3,18,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Black Skimmer,2,2+2,6,2,2,112,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Black Tern,2,0/2,4,4,2,61,"Draw 1 . If you do, discard 1 from your hand at the end of your turn."
-Black Vulture,0,,2,3,1,150,"When another player’s predator succeeds, gain 1 from the birdfeeder."
-Black-Bellied Whistling Duck,2,1+1,2,3,5,76,Discard 1 to tuck 2 from the deck behind this bird.
-Black-Billed Magpie,1,A+A,3,4,3,64,"When another player’s predator succeeds, gain 1 from the birdfeeder."
-Black-Chinned Hummingbird,0/1/2,A,4,1,2,8,All players gain a from the supply.
-Black-Crowned Night-Heron,2,0+2+3,9,0,2,112,Discard 1 from any of your other birds to gain 1 from the supply.
-Black-Necked Stilt,2,0+0,4,2,2,74,Draw 2 .
-Blue Grosbeak,0/1/2,0+1+1,4,1,3,28,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Blue Jay,0,1+A,3,1,2,41,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-Blue-Gray Gnatcatcher,0,0,1,1,3,15,Gain 1 from the supply.
+Anhinga,2,2+2,6,0,2,114,A{r2}=>{C}
+Anna’s Hummingbird,0/1/2,A,4,1,2,13,
+Ash-Throated Flycatcher,1,0+0+4,4,3,4,30,
+Atlantic Pufﬁn,2,2+2+2,8,4,1,53,
+Baird’s Sparrow,1,0+1,3,2,2,23,
+Bald Eagle,2,2+2+3,9,0,1,203,
+Baltimore Oriole,0,0+4+4,9,4,2,30,
+Barn Owl,0/1/2,3+3,5,3,4,107,
+Barn Swallow,1/2,0,1,4,3,38,
+Barred Owl,0,3,3,3,2,107,
+Barrow’s Goldeneye,2,0+1+2,5,3,4,71,
+Bell’s Vireo,0/1,0+0,4,4,2,18,
+Belted Kingﬁsher,2,2+A,4,4,4,53,
+Bewick’s Wren,0/1/2,0+0+1,4,3,3,18,
+Black Skimmer,2,2+2,6,2,2,112,
+Black Tern,2,0/2,4,4,2,61,
+Black Vulture,0,,2,3,1,150,
+Black-Bellied Whistling Duck,2,1+1,2,3,5,76,
+Black-Billed Magpie,1,A+A,3,4,3,64,
+Black-Chinned Hummingbird,0/1/2,A,4,1,2,8,
+Black-Crowned Night-Heron,2,0+2+3,9,0,2,112,
+Black-Necked Stilt,2,0+0,4,2,2,74,
+Blue Grosbeak,0/1/2,0+1+1,4,1,3,28,
+Blue Jay,0,1+A,3,1,2,41,
+Blue-Gray Gnatcatcher,0,0,1,1,3,15,
 Blue-Winged Warbler,0/1,0+0,8,1,2,20,
-Bobolink,1,0+1+1,4,2,3,30,Lay 1 on each of your birds with a nest.
-Brant,2,1+A,3,2,2,114,Draw the 3 face-up in the bird tray.
-Brewer’s Blackbird,1,1+A,3,1,3,41,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-Broad-Winged Hawk,0,3,4,0,2,85,"Roll all dice not in birdfeeder. If any are a , gain 1 and cache it on this card."
-Bronzed Cowbird,1,0+1,5,,0,36,"When another player takes the ""lay eggs"" action, this bird lays 1 on another bird with a nest."
-Brown Pelican,2,2+2,4,0,2,201,Gain 3 from the supply.
-Brown-Headed Cowbird,1,1,3,,0,30,"When another player takes the ""lay eggs"" action, this bird lays 1 on another bird with a nest."
-Burrowing Owl,1,0+3,5,4,4,53,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Bushtit,0/1/2,0+1,2,4,6,15,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-California Condor,0/1/2,,1,2,1,277,Draw 2 new bonus cards and keep 1.
-California Quail,0/1,0+1+1,3,2,6,36,Lay 1 on this bird.
-Canada Goose,1/2,1+1,3,2,3,132,Discard 1 to tuck 2 from the deck behind this bird.
-Canvasback,2,1+A,4,4,4,82,All players draw 1 from the deck.
-Carolina Chickadee,0,0/1,2,3,3,20,Gain 1 from the supply and cache it on this card.
-Carolina Wren,0,0/4,1,3,5,20,Draw 2 .
-Cassin’s Finch,0,1+4,4,1,3,30,Draw 2 new bonus cards and keep 1.
-Cassin’s Sparrow,1,0+1,3,2,2,20,Lay 1 on any bird.
-Cedar Waxwing,0/1,4+4,3,1,3,25,"Tuck a from your hand behind this bird. If you do, gain 1 from the supply."
-Cerulean Warbler,0,0+1,4,1,2,20,Draw 2 new bonus cards and keep 1.
-Chestnut-Collared Longspur,1,0+1+1,5,2,4,25,Draw 2 new bonus cards and keep 1.
-Chihuahuan Raven,1,3+A+A,4,0,3,112,Discard 1 from any of your other birds to gain 2 from the supply.
-Chimney Swift,0/1/2,0+0,3,4,2,36,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Chipping Sparrow,0/1,0/1,1,1,3,23,Lay 1 on any bird.
-Clark’s Grebe,2,2,5,4,2,61,"Draw 1 . If you do, discard 1 from your hand at the end of your turn."
-Clark’s Nutcracker,0,1+1+A,5,0,2,61,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-Common Grackle,0/1/2,1+A,3,1,3,43,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-Common Loon,2,2+A,6,2,1,117,Player(s) with the fewest birds: draw 1 .
-Common Merganser,2,2+A,5,3,4,86,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Common Nighthawk,0/1/2,0+0,3,2,2,56,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Common Raven,0/1/2,3+A+A,5,0,2,135,Discard 1 from any of your other birds to gain 2 from the supply.
-Common Yellowthroat,2,0,1,1,4,18,"Draw 2 . If you do, discard 1 from your hand at the end of your turn."
-Cooper’s Hawk,0,3,3,0,2,79,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Dark-Eyed Junco,0/1,0+1,3,2,3,23,"Tuck a from your hand behind this bird. If you do, gain 1 from the supply."
-Dickcissel,1,0+1+1,4,2,3,25,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-Double-Crested Cormorant,2,2+A,3,0,3,132,Discard to tuck 2 from the deck behind this bird.
-Downy Woodpecker,0,0/1/4,3,3,2,30,Play a second bird in your . Pay its normal cost.
-Eastern Bluebird,1,0+4,4,3,5,33,Play a second bird in your . Pay its normal cost.
-Eastern Kingbird,0/1/2,0/4,2,1,2,38,"When another player plays a bird, gain 1 from the supply."
-Eastern Phoebe,0/1/2,0/4,3,4,4,28,All players gain 1 from the supply.
-Eastern Screech Owl,0,0/3,4,3,2,51,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Ferruginous Hawk,1,3+3,6,0,2,142,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Fish Crow,0/1/2,2+A,6,0,2,91,Discard 1 from any of your other birds to gain 1 from the supply.
-Forster’s Tern,2,0/2,4,4,2,79,"Draw 1 . If you do, discard 1 from your hand at the end of your turn."
-Franklin’s Gull,1/2,2+A,3,4,2,91,Discard 1 to draw 2 .
-Golden Eagle,1/2,3+3+3,8,0,1,201,"Look at a from the deck. If < 100 cm, tuck it behind this bird. If not, discard it."
-Grasshopper Sparrow,1,0/1,2,2,2,20,Lay 1 on any bird.
-Gray Catbird,0/1/2,0+4+4,5,1,3,28,Repeat a brown power on one other bird in this habitat.
-Great Blue Heron,2,0+2,5,0,2,183,Play a second bird in your . Pay its normal cost.
-Great Crested Flycatcher,0,0+4,5,3,3,33,"Gain 1 from the birdfeeder, if there is one."
-Great Egret,2,2+2+3,7,0,3,130,Play a second bird in your . Pay its normal cost.
-Great Horned Owl,0,3+3+3,8,0,2,112,"Look at a from the deck. If < 100 cm, tuck it behind this bird. If not, discard it."
-Greater Prairie Chicken,1,0+1+1,5,2,4,71,Draw 2 new bonus cards and keep 1.
-Greater Roadrunner,1,0+3+A,7,0,2,56,"Look at a from the deck. If < 50 cm, tuck it behind this bird. If not, discard it."
-Green Heron,2,0/2,4,0,3,66,Trade 1 for any from the supply.
-Hermit Thrush,0,0+4+4,7,4,2,30,Player(s) with fewest birds gain 1 from birdfeeder.
-Hooded Merganser,2,0+2,5,3,4,61,Repeat 1 power in this habitat.
+Bobolink,1,0+1+1,4,2,3,30,
+Brant,2,1+A,3,2,2,114,
+Brewer’s Blackbird,1,1+A,3,1,3,41,
+Broad-Winged Hawk,0,3,4,0,2,85,
+Bronzed Cowbird,1,0+1,5,,0,36,
+Brown Pelican,2,2+2,4,0,2,201,
+Brown-Headed Cowbird,1,1,3,,0,30,
+Burrowing Owl,1,0+3,5,4,4,53,
+Bushtit,0/1/2,0+1,2,4,6,15,
+California Condor,0/1/2,,1,2,1,277,
+California Quail,0/1,0+1+1,3,2,6,36,
+Canada Goose,1/2,1+1,3,2,3,132,
+Canvasback,2,1+A,4,4,4,82,
+Carolina Chickadee,0,0/1,2,3,3,20,
+Carolina Wren,0,0/4,1,3,5,20,
+Cassin’s Finch,0,1+4,4,1,3,30,
+Cassin’s Sparrow,1,0+1,3,2,2,20,
+Cedar Waxwing,0/1,4+4,3,1,3,25,
+Cerulean Warbler,0,0+1,4,1,2,20,
+Chestnut-Collared Longspur,1,0+1+1,5,2,4,25,
+Chihuahuan Raven,1,3+A+A,4,0,3,112,
+Chimney Swift,0/1/2,0+0,3,4,2,36,
+Chipping Sparrow,0/1,0/1,1,1,3,23,
+Clark’s Grebe,2,2,5,4,2,61,
+Clark’s Nutcracker,0,1+1+A,5,0,2,61,
+Common Grackle,0/1/2,1+A,3,1,3,43,
+Common Loon,2,2+A,6,2,1,117,
+Common Merganser,2,2+A,5,3,4,86,
+Common Nighthawk,0/1/2,0+0,3,2,2,56,
+Common Raven,0/1/2,3+A+A,5,0,2,135,
+Common Yellowthroat,2,0,1,1,4,18,
+Cooper’s Hawk,0,3,3,0,2,79,
+Dark-Eyed Junco,0/1,0+1,3,2,3,23,
+Dickcissel,1,0+1+1,4,2,3,25,
+Double-Crested Cormorant,2,2+A,3,0,3,132,
+Downy Woodpecker,0,0/1/4,3,3,2,30,
+Eastern Bluebird,1,0+4,4,3,5,33,
+Eastern Kingbird,0/1/2,0/4,2,1,2,38,
+Eastern Phoebe,0/1/2,0/4,3,4,4,28,
+Eastern Screech Owl,0,0/3,4,3,2,51,
+Ferruginous Hawk,1,3+3,6,0,2,142,
+Fish Crow,0/1/2,2+A,6,0,2,91,
+Forster’s Tern,2,0/2,4,4,2,79,
+Franklin’s Gull,1/2,2+A,3,4,2,91,
+Golden Eagle,1/2,3+3+3,8,0,1,201,
+Grasshopper Sparrow,1,0/1,2,2,2,20,
+Gray Catbird,0/1/2,0+4+4,5,1,3,28,
+Great Blue Heron,2,0+2,5,0,2,183,
+Great Crested Flycatcher,0,0+4,5,3,3,33,
+Great Egret,2,2+2+3,7,0,3,130,
+Great Horned Owl,0,3+3+3,8,0,2,112,
+Greater Prairie Chicken,1,0+1+1,5,2,4,71,
+Greater Roadrunner,1,0+3+A,7,0,2,56,
+Green Heron,2,0/2,4,0,3,66,
+Hermit Thrush,0,0+4+4,7,4,2,30,
+Hooded Merganser,2,0+2,5,3,4,61,
 Hooded Warbler,0,0+0,7,1,3,18,
-Horned Lark,1,0+1,5,2,4,30,"When another player plays a bird, tuck 1 from your hand behind this bird."
-House Finch,0/1/2,1+4,3,1,6,25,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-House Wren,0/1,0,1,3,5,15,Play a second bird in your or . Pay its normal cost.
-Inca Dove,1,1+1,2,0,4,28,Lay 1 on each of your birds with a [platform] nest.
-Indigo Bunting,0/1,0+1+4,5,1,3,20,"Gain 1 or from the birdfeeder, if there is one."
-Juniper Titmouse,1,0+1,4,3,3,23,Gain 1 from the supply and cache it on this card.
-Killdeer,1/2,0/1,1,2,3,46,Discard 1 to draw 2 .
-King Rail,2,0+2+A,4,0,6,51,Draw 2 new bonus cards and keep 1.
-Lazuli Bunting,1,0+1+4,4,1,4,23,All players lay 1 on any 1 bird. You may lay 1 on 1 additional bird.
-Lincoln’s Sparrow,0/1/2,0+1,3,2,2,20,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Loggerhead Shrike,1/2,0+3,3,1,4,30,"When another player takes the ""gain food"" action, if they gain any number of , also gain 1"
-Mallard,2,0/1,0,2,4,89,Draw 1 .
-Mississippi Kite,0/1,0/3,4,0,1,79,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Mountain Bluebird,1,0+4,4,3,5,36,Play a second bird in your . Pay its normal cost.
-Mountain Chickadee,0,0/1,2,3,3,23,Gain 1 from the supply and cache it on this card.
-Mourning Dove,0/1/2,1,0,0,5,46,Lay 1 on this bird.
-Northern Bobwhite,1,1+1+1,5,2,6,33,Lay 1 on this bird.
-Northern Cardinal,0,1+4,3,1,5,30,Gain 1 from the supply.
-Northern Flicker,0/1,0/1/4,2,3,4,51,Gain all that are in the birdfeeder.
-Northern Harrier,1/2,3,3,0,2,109,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Northern Mockingbird,0/1/2,0+4,2,1,4,36,Repeat a brown power on one other bird in this habitat.
-Northern Shoveler,2,0+1+1,7,2,4,76,All players draw 1 from the deck.
-Osprey,2,2,5,0,2,160,All players gain 1 from the supply.
-Painted Bunting,1,0+1+1,5,1,4,23,Draw 2 new bonus cards and keep 1.
-Painted Whitestart,0,0,1,2,3,22,Gain 1 from the supply.
-Peregrine Falcon,1/2,3+3,5,0,2,104,"Look at a from the deck. If < 100 cm, tuck it behind this bird. If not, discard it."
-Pied-Billed Grebe,2,0/2,0,0,4,41,"Draw 2 . If you do, discard 1 from your hand at the end of your turn."
-Pileated Woodpecker,0,0+4,4,3,2,74,All players lay 1 on any 1 bird. You may lay 1 on 1 additional bird.
-Pine Siskin,0,1+1,3,1,2,23,"Tuck a from your hand behind this bird. If you do, gain 1 from the supply."
+Horned Lark,1,0+1,5,2,4,30,
+House Finch,0/1/2,1+4,3,1,6,25,
+House Wren,0/1,0,1,3,5,15,
+Inca Dove,1,1+1,2,0,4,28,
+Indigo Bunting,0/1,0+1+4,5,1,3,20,
+Juniper Titmouse,1,0+1,4,3,3,23,
+Killdeer,1/2,0/1,1,2,3,46,
+King Rail,2,0+2+A,4,0,6,51,
+Lazuli Bunting,1,0+1+4,4,1,4,23,
+Lincoln’s Sparrow,0/1/2,0+1,3,2,2,20,
+Loggerhead Shrike,1/2,0+3,3,1,4,30,
+Mallard,2,0/1,0,2,4,89,
+Mississippi Kite,0/1,0/3,4,0,1,79,
+Mountain Bluebird,1,0+4,4,3,5,36,
+Mountain Chickadee,0,0/1,2,3,3,23,
+Mourning Dove,0/1/2,1,0,0,5,46,
+Northern Bobwhite,1,1+1+1,5,2,6,33,
+Northern Cardinal,0,1+4,3,1,5,30,
+Northern Flicker,0/1,0/1/4,2,3,4,51,
+Northern Harrier,1/2,3,3,0,2,109,
+Northern Mockingbird,0/1/2,0+4,2,1,4,36,
+Northern Shoveler,2,0+1+1,7,2,4,76,
+Osprey,2,2,5,0,2,160,
+Painted Bunting,1,0+1+1,5,1,4,23,
+Painted Whitestart,0,0,1,2,3,22,
+Peregrine Falcon,1/2,3+3,5,0,2,104,
+Pied-Billed Grebe,2,0/2,0,0,4,41,
+Pileated Woodpecker,0,0+4,4,3,2,74,
+Pine Siskin,0,1+1,3,1,2,23,
 Prothonotary Warbler,0/2,0+0+1,8,3,4,23,
-Purple Gallinule,2,1+4+A,7,0,4,56,All players draw 1 from the deck.
-Purple Martin,1/2,0,2,3,3,46,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-Pygmy Nuthatch,0,0+1,2,3,4,20,"Tuck a from your hand behind this bird. If you do, gain 1 or 1 from the supply."
-Red Crossbill,0,1+1,6,1,2,28,All players gain 1 from the supply.
-Red-Bellied Woodpecker,0,0/1,1,3,3,41,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-Red-Breasted Merganser,2,1+2,3,2,4,78,"Draw 2 . If you do, discard 1 from your hand at the end of your turn."
-Red-Breasted Nuthatch,0,0/1,2,3,3,23,Gain 1 from the supply and cache it on this card.
-Red-Cockaded Woodpecker,0,0+4,4,3,2,36,Draw 2 new bonus cards and keep 1.
-Red-Eyed Vireo,0,0/4,3,4,2,25,Play a second bird in your . Pay its normal cost.
-Red-Headed Woodpecker,0/1/2,0+1+A,4,3,3,43,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-Red-Shouldered Hawk,0,3,3,0,2,102,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Red-Tailed Hawk,0/1/2,3+3,5,0,2,124,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Red-Winged Blackbird,1/2,1,2,1,3,33,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-Ring-Billed Gull,2,A+A,4,2,2,122,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-Rose-Breasted Grosbeak,0,0+1+4,6,1,3,33,"Gain 1 or from the birdfeeder, if there is one."
-Roseate Spoonbill,2,0+1+2,6,0,2,127,Draw 2 new bonus cards and keep 1.
-Ruby-Crowned Kinglet,0,0/1/4,2,1,3,20,Play a second bird in your . Pay its normal cost.
-Ruby-Throated Hummingbird,0/1/2,A+A,4,1,2,10,"Each player gains 1 from the birdfeeder, starting with the player of your choice."
-Ruddy Duck,2,0/1,0,0,5,48,"Draw 2 . If you do, discard 1 from your hand at the end of your turn."
-Sandhill Crane,1/2,1+1+A,5,2,1,196,Discard 1 to tuck 2 from the deck behind this bird.
-Savannah Sparrow,1,0/1,2,2,3,18,Play a second bird in your . Pay its normal cost.
-Say’s Phoebe,1,0+0+0,5,1,3,33,Lay 1 on each of your birds with a nest.
-Scaled Quail,1,1,0,2,6,36,Lay 1 on this bird.
-Scissor-Tailed Flycatcher,1,0+0+4,8,1,2,38,All players gain 1 from the supply.
-Snowy Egret,2,0/2,4,0,2,104,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Song Sparrow,0/1/2,0/1/4,0,1,5,20,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Spotted Owl,0,3+3,5,3,1,102,Draw 2 new bonus cards and keep 1.
-Spotted Sandpiper,2,0,5,2,2,38,All players draw 1 from the deck.
-Spotted Towhee,0/1,0/1/4,0,2,4,28,Gain 1 from the supply.
-Sprague’s Pipit,1,0+1,3,2,3,25,Draw 2 new bonus cards and keep 1.
-Steller’s Jay,0,1+1+A,5,1,2,48,Gain 1 from the birdfeeder (if available). You may cache it on this card.
-Swainson’s Hawk,1,0+3,5,0,2,130,"Look at a from the deck. If < 75 cm, tuck it behind this bird. If not, discard it."
-Tree Swallow,2,0+4,3,3,4,38,"Tuck a from your hand behind this bird. If you do, draw 1 ."
+Purple Gallinule,2,1+4+A,7,0,4,56,
+Purple Martin,1/2,0,2,3,3,46,
+Pygmy Nuthatch,0,0+1,2,3,4,20,
+Red Crossbill,0,1+1,6,1,2,28,
+Red-Bellied Woodpecker,0,0/1,1,3,3,41,
+Red-Breasted Merganser,2,1+2,3,2,4,78,
+Red-Breasted Nuthatch,0,0/1,2,3,3,23,
+Red-Cockaded Woodpecker,0,0+4,4,3,2,36,
+Red-Eyed Vireo,0,0/4,3,4,2,25,
+Red-Headed Woodpecker,0/1/2,0+1+A,4,3,3,43,
+Red-Shouldered Hawk,0,3,3,0,2,102,
+Red-Tailed Hawk,0/1/2,3+3,5,0,2,124,
+Red-Winged Blackbird,1/2,1,2,1,3,33,
+Ring-Billed Gull,2,A+A,4,2,2,122,
+Rose-Breasted Grosbeak,0,0+1+4,6,1,3,33,
+Roseate Spoonbill,2,0+1+2,6,0,2,127,
+Ruby-Crowned Kinglet,0,0/1/4,2,1,3,20,
+Ruby-Throated Hummingbird,0/1/2,A+A,4,1,2,10,
+Ruddy Duck,2,0/1,0,0,5,48,
+Sandhill Crane,1/2,1+1+A,5,2,1,196,
+Savannah Sparrow,1,0/1,2,2,3,18,
+Say’s Phoebe,1,0+0+0,5,1,3,33,
+Scaled Quail,1,1,0,2,6,36,
+Scissor-Tailed Flycatcher,1,0+0+4,8,1,2,38,
+Snowy Egret,2,0/2,4,0,2,104,
+Song Sparrow,0/1/2,0/1/4,0,1,5,20,
+Spotted Owl,0,3+3,5,3,1,102,
+Spotted Sandpiper,2,0,5,2,2,38,
+Spotted Towhee,0/1,0/1/4,0,2,4,28,
+Sprague’s Pipit,1,0+1,3,2,3,25,
+Steller’s Jay,0,1+1+A,5,1,2,48,
+Swainson’s Hawk,1,0+3,5,0,2,130,
+Tree Swallow,2,0+4,3,3,4,38,
 Trumpeter Swan,2,1+1+A,9,2,2,203,
-Tufted Titmouse,0,0/1/4,2,3,3,25,Play a second bird in your . Pay its normal cost.
-Turkey Vulture,0/1/2,,1,3,1,170,"When another player’s predator succeeds, gain 1 from the birdfeeder."
-Vaux’s Swift,0,0,2,3,3,31,"Tuck a from your hand behind this bird. If you do, gain 1 from the supply."
-Violet-Green Swallow,0/1/2,0+0,3,3,3,36,"Tuck a from your hand behind this bird. If you do, draw 1 ."
-Western Meadowlark,1,0+1,2,2,4,38,All players lay 1 on any 1 bird. You may lay 1 on 1 additional bird.
-Western Tanager,0,0+0+4,6,1,2,30,"Gain 1 or from the birdfeeder, if there is one."
-White-Breasted Nuthatch,0,0/1,2,3,3,28,Gain 1 from the supply and cache it on this card.
-White-Crowned Sparrow,0/1/2,0+1,2,2,6,25,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-White-Faced Ibis,2,0+0+2,8,0,2,91,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-White-Throated Swift,1,0,2,3,2,38,"Tuck a from your hand behind this bird. If you do, lay 1 on any bird."
-Whooping Crane,2,A+A+A,6,2,1,221,Draw 2 new bonus cards and keep 1.
+Tufted Titmouse,0,0/1/4,2,3,3,25,
+Turkey Vulture,0/1/2,,1,3,1,170,
+Vaux’s Swift,0,0,2,3,3,31,
+Violet-Green Swallow,0/1/2,0+0,3,3,3,36,
+Western Meadowlark,1,0+1,2,2,4,38,
+Western Tanager,0,0+0+4,6,1,2,30,
+White-Breasted Nuthatch,0,0/1,2,3,3,28,
+White-Crowned Sparrow,0/1/2,0+1,2,2,6,25,
+White-Faced Ibis,2,0+0+2,8,0,2,91,
+White-Throated Swift,1,0,2,3,2,38,
+Whooping Crane,2,A+A+A,6,2,1,221,
 Wild Turkey,0/1,1+1+4,8,2,5,135,
-Willet,2,0/2,4,2,2,66,"Roll all dice not in birdfeeder. If any are , gain 1 and cache it on this card."
-Wilson’s Snipe,2,0,5,2,2,41,All players draw 1 from the deck.
-Wood Duck,0/2,1+1+4,4,3,4,76,"Draw 2 . If you do, discard 1 from your hand at the end of your turn."
-Wood Stork,2,2+3+A,6,0,2,155,Draw 2 new bonus cards and keep 1.
-Yellow-Bellied Sapsucker,0,0+4,3,3,3,41,Gain 1 from the supply.
-Yellow-Billed Cuckoo,0,0+0+A,5,0,2,46,"When another player takes the ""lay eggs"" action, this bird lays 1 on another bird with a nest."
-Yellow-Breasted Chat,0/1/2,0+4+4,5,1,3,25,"If this bird is to the right of all other birds in its habitat, move it to another habitat."
-Yellow-Headed Blackbird,2,0+1,4,1,3,38,"Tuck a from your hand behind this bird. If you do, also lay 1 on this bird."
-Yellow-Rumped Warbler,0,0/1/4,1,1,4,23,"Tuck a from your hand behind this bird. If you do, draw 1 ."
+Willet,2,0/2,4,2,2,66,
+Wilson’s Snipe,2,0,5,2,2,41,
+Wood Duck,0/2,1+1+4,4,3,4,76,
+Wood Stork,2,2+3+A,6,0,2,155,
+Yellow-Bellied Sapsucker,0,0+4,3,3,3,41,
+Yellow-Billed Cuckoo,0,0+0+A,5,0,2,46,
+Yellow-Breasted Chat,0/1/2,0+4+4,5,1,3,25,
+Yellow-Headed Blackbird,2,0+1,4,1,3,38,
+Yellow-Rumped Warbler,0,0/1/4,1,1,4,23,
