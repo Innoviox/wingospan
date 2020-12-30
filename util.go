@@ -7,6 +7,7 @@ const (
 	Fish
 	Rodent
 	Berry
+	Any
 )
 
 type Nest int // todo

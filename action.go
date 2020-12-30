@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"strconv"
+	"strings"
+)
 
 type ActionType int
 const (
@@ -65,7 +68,7 @@ type Things struct {
 
 type Thing struct {
 	typ ThingType
-	arg *interface{}
+	arg int
 }
 
 func parse(s string) *Action {
@@ -105,6 +108,25 @@ func parseThings(s string) *Things {
 
 func parseThing(s string) *Thing {
 	t := new(Thing)
+
+	t.typ = ThingType(s[0] - 65)
+
+	if len(s) > 1 {
+		arg := s[1:]
+		switch t.typ {
+		case :
+			i, _ := strconv.Atoi(arg)
+			t.arg = Food(i)
+		case :
+			i, _ := strconv.Atoi(arg)
+			t.arg = Nest(i)
+		case :
+			i, _ := strconv.Atoi(arg)
+			t.arg = Region(i)
+		case :
+			t.arg = parseThing(arg)
+		}
+	}
 
 	return t
 }
