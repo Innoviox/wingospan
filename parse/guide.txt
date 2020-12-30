@@ -42,3 +42,5 @@ W - players with the fewest x birds
 - - remove
 A - all players, starting with player of your choice
 t - trade (A for A)
+Q - Draw   equal to the number of players +1. Starting with you and proceeding clockwise, each
+player selects 1 of those cards and places it in their hand. You keep the extra card.

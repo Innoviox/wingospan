@@ -6,7 +6,7 @@ American Coot,2,1+A,3,0,5,61,A{T}=>{D}
 American Crow,0/1/2,A,4,0,2,99,A{-~E}=>{GA}
 American Goldﬁnch,1,1+1,3,1,3,23,P{G1;G1;G1}
 American Kestrel,1,0+3,5,3,3,56,A{r3}=>{C}
-American Oystercatcher,2,0+0,5,2,2,81,TODO
+American Oystercatcher,2,0+0,5,2,2,81,P{D;A{D}}
 American Redstart,0,0+4,4,1,4,20,A{B}
 American Robin,0/1,0/4,1,1,4,43,A{T}=>{D}
 American White Pelican,2,2+2,5,2,1,274,A{-2}=>{Td;Td}
