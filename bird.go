@@ -11,5 +11,5 @@ type Bird struct { // todo store name types for bonus; images
 	eggs int
 	wingspan int
 
-	action Action
+	action *Action
 }

@@ -24,3 +24,4 @@ const ( // todo right names
 	Grasslands
 	Waterlands
 )
+
