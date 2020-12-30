@@ -44,10 +44,21 @@ const (
 	SuccessfulHunt
 )
 
+type JoinType int
+const (
+	And JoinType = iota
+	Or
+)
+
 type Action struct {
 	typ ActionType
-	cause []Thing
-	effect []Thing
+	cause Things
+	effect Things
+}
+
+type Things struct {
+	things []Thing
+	typ JoinType
 }
 
 type Thing struct {
