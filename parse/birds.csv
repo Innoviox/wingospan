@@ -1,4 +1,4 @@
-Name,Region,Cost,Points,Nest,Eggs,Wingspan,Action,Action Updated
+Name,Region,Cost,Points,Nest,Eggs,Wingspan,ActionReadable,Action
 Chihuahuan Raven,1,3+A+A,4,0,3,112,A{-~E}=>{GA;GA},A{Z}=>{HA;HA}
 Common Raven,0/1/2,3+A+A,5,0,2,135,A{-~E}=>{GA;GA},A{Z}=>{HA;HA}
 American Crow,0/1/2,A,4,0,2,99,A{-~E}=>{GA},A{Z}=>{HA}
