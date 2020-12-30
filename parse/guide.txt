@@ -4,6 +4,7 @@ O: once between turns
 
 Action names
 	P: play bird
+		Px: played bird in zone
 	F: gain food
 	L: lay eggs
 	D: draw cards
@@ -11,11 +12,12 @@ Action names
 C - cache
 	C?: optionally cache
 H - hunt
-	Hx: hunt for <x bird => tuck 1 from deck
+	Hx: hunt for <x bird => tuck
 T - tuck
 	Td: tuck from deck
 B - gain from birdfeeder
-	Bx: gain x inf available
+	Bx: gain x if available
+	Bxa: gain all x from birdfeeder
 G - gain from supply
 
 P - play second bird in same zone
@@ -26,6 +28,7 @@ D - draw card
 R - repeat action in same row
 E - lay an egg
 	Ex: on a nest
+		Exe: on each nest
 	Ex~: on another
 	Ex!: on any
 M - if rightmost, move
@@ -33,4 +36,4 @@ r - roll outside dice
 	rx: if rolled an x
 W - players with the fewest x birds
 - - remove
-
+A - all players, starting with player of your choice
