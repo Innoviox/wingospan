@@ -37,6 +37,11 @@ const (
 	DiscardEggAnother
 	DiscardAtTurnEnd
 	DiscardFood
+	LayEggAction
+	DiscardAnyEgg
+	PlayBirdAction
+	GainFoodAction
+	SuccessfulHunt
 )
 
 type Action struct {
@@ -47,7 +52,7 @@ type Action struct {
 
 type Thing struct {
 	typ ThingType
-	arg *Thing
+	arg *interface{}
 }
 
 func parse(s string) Action {
