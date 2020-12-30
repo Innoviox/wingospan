@@ -39,8 +39,35 @@ M - if rightmost, move
 r - roll outside dice
 	rx: if rolled an x
 W - players with the fewest x birds
-- - remove
 A - all players, starting with player of your choice
 t - trade (A for A)
-Q - Draw   equal to the number of players +1. Starting with you and proceeding clockwise, each
-player selects 1 of those cards and places it in their hand. You keep the extra card.
+- - remove
+
+1 - cache
+2 - optionally cache
+3 - hunt
+4 - tuck
+5 - tuck from deck
+6 - gain from birdfeeder
+7 - gain all from birdfeeder
+8 - gain from supply
+9 - play second bird
+0 - bonus
+A - draw card
+B - draw tray card
+C - repeat brown power
+D - repeat hunter power
+E - lay an egg on this bird
+F - lay an egg on another bird
+G - lay an egg on any bird
+H - lay an egg on each bird
+I - move if rightmost
+J - roll outside dice
+K - players with the fewest
+L - all players, starting with player of your choice
+M - trade A for A
+N - discard (card)
+O - discard an egg from this bird
+P - discard an egg from another bird
+Q - discard at the end of your turn
+R - discard (food)
