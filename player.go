@@ -64,6 +64,12 @@ func (p *Player) payEggs(e *Eggs) {
 	}
 }
 
+func (p *Player) lay(e Eggs) {
+	for _, loc := range e {
+		p.board.rows[loc[0]][loc[1]].eggs += loc[2]
+	}
+}
+
 func (p *Player) discard(b *Bird) {
 	var hand []Bird
 
@@ -83,4 +89,8 @@ func (p *Player) birdfeeder(g *Game, f Food) {
 			g.birdfeeder.remove(d)
 		}
 	}
+}
+
+func (p *Player) draw(cards []Bird) {
+	p.hand = append(p.hand, cards...)
 }
