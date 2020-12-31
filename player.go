@@ -2,7 +2,7 @@ package main
 
 type Player struct {
 	board *Board
-	food []Food
+	food map[Food]int
 	hand []Bird
 	bonus []Bonus
 }
@@ -49,4 +49,16 @@ func (p *Player) drawCards(g *Game, tray []int, ndeck int, discard *Eggs) {
 	}
 
 	p.activate(g, Waterlands)
+}
+
+func (p *Player) payFood(food []Food) {
+	for _, f := range food {
+		p.food[f]--
+	}
+}
+
+func (p *Player) payEggs(e Eggs) {
+	for _, loc := range e {
+		p.board.rows[loc[0]][loc[1]].eggs -= loc[2]
+	}
 }

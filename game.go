@@ -17,7 +17,9 @@ func (g *Game) init(nplayers int) {
 	for i := 0; i < nplayers; i++ {
 		g.players = append(g.players, &Player {
 			board: new(Board),
-			food: []Food { Worm, Seed, Fish, Rodent, Berry },
+			food: map[Food]int {
+				Worm: 1, Seed: 1, Fish: 1, Rodent: 1, Berry: 1
+			},
 			hand: g.draw(5),
 			// todo bonus
 		})

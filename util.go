@@ -72,4 +72,4 @@ func parseRegion(s string) []Region {
 	return r
 }
 
-type Eggs [][]int // a list of (region, birdn, #eggs)
+type Eggs [][3]int // a list of (region, birdn, #eggs)
