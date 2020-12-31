@@ -116,7 +116,7 @@ func parseThings(s string) *Things {
 
 func parseThing(s string) *Thing {
 	t := new(Thing)
-
+	
 	t.typ = ThingType(strings.Index("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef", string(s[0])))
 
 	if len(s) > 1 {
