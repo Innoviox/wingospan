@@ -2,7 +2,7 @@ package main
 
 type Bird struct { // todo store name types for bonus; images
 	name string
-	region Region
+	region []Region
 	cost Cost
 
 	points int

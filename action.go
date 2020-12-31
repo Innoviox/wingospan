@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -11,6 +12,10 @@ const (
 	Play
 	Once
 )
+
+func (a ActionType) String() string {
+	return[...]string{"Activated","Play","Once"}[a]
+}
 
 type ThingType int
 const (
@@ -49,6 +54,10 @@ const (
 	SuccessfulHunt
 )
 
+func (t ThingType) String() string {
+	return[...]string{"Cache","CacheOptional","Hunt","Tuck","TuckFromDeck","GainFromBirdfeeder","GainAllFromBirdfeeder","GainSupply","PlaySecond","Bonusify","Draw","DrawTray","RepeatBrown","RepeatHunter","LayEgg","LayEggAnother","LayEggAny","LayEggEach","MoveIfRight","RollOutside","PlayersWithFewest","AllPlayers","Trade","DiscardCard","DiscardEgg","DiscardEggAnother","DiscardAtTurnEnd","DiscardFood","LayEggAction","DiscardAnyEgg","PlayBirdAction","GainFoodAction","SuccessfulHunt"}[t]
+}
+
 type Action struct {
 	typ ActionType
 	cause *Things
@@ -68,6 +77,10 @@ type Thing struct {
 
 func readAction(s string) *Action {
 	act := new(Action)
+
+	if s == "" {
+		return act
+	}
 
 	parts := strings.Split(s, ",")
 
@@ -125,4 +138,20 @@ func parseThing(s string) *Thing {
 	}
 
 	return t
+}
+
+func (a *Action) String() string {
+	var br strings.Builder
+
+	fmt.Fprintf(&br, "%s %s %s", a.typ.String(), a.cause.String(), a.effect.String())
+
+	return br.String()
+}
+
+func (t *Things) String() string {
+	var br strings.Builder
+
+	fmt.Fprintf(&br, "%s %s %s", a.typ.String(), a.cause.String(), a.effect.String())
+
+	return br.String()
 }

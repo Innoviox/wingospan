@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"os"
 )
 
@@ -11,14 +12,19 @@ func main() {
 	// readAction birds
 	game.deck = make([]Bird, 0)
 
-	file, _ := os.Open("readAction/birds.csv")
+	file, _ := os.Open("parse/birds.csv")
 	r := csv.NewReader(file)
 
 	records, _ := r.ReadAll()
-	for _, line := range records {
-		game.deck = append(game.deck, Bird {
+
+	for i, line := range records {
+		if i == 0 {
+			continue
+		}
+
+		b := Bird {
 			name:     line[0],
-			region:   Region(Atoi(line[1])),
+			region:   parseRegion(line[1]),
 			cost:     readCost(line[2]),
 			points:   Atoi(line[3]),
 			nest:     Nest(Atoi(line[4])),
@@ -26,6 +32,8 @@ func main() {
 			eggs:     0,
 			wingspan: Atoi(line[6]),
 			action:   readAction(line[8]),
-		})
+		}
+		fmt.Println(b.action)
+		game.deck = append(game.deck, b)
 	}
 }
