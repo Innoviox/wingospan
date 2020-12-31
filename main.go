@@ -29,7 +29,6 @@ func main() {
 			points:   Atoi(line[3]),
 			nest:     Nest(Atoi(line[4])),
 			eggLimit: Atoi(line[5]),
-			eggs:     0,
 			wingspan: Atoi(line[6]),
 			action:   readAction(line[8]),
 		})
