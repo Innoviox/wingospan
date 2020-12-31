@@ -4,7 +4,7 @@ type Board struct {
 	rows [3][]Bird
 }
 
-func (b Board) rawScore() int {
+func (b *Board) rawScore() int {
 	s := 0
 
 	for _, row := range b.rows {
@@ -15,3 +15,4 @@ func (b Board) rawScore() int {
 
 	return s
 }
+

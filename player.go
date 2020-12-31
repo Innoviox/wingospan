@@ -1,7 +1,7 @@
 package main
 
 type Player struct {
-	board Board
+	board *Board
 	food []Food
 	hand []Bird
 	bonus []Bonus
