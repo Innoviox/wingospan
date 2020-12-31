@@ -48,24 +48,23 @@ func Atoi(s string) int {
 	return i
 }
 
-func splitString[type T] (s string, parse func(string) *T) (JoinType, []*T) {
+func splitString (s string, parse func(string)) JoinType {
 	typ := And
-	things := make([]*T, 0)
 
 	if strings.Contains(s, "+") {
 		typ = And
 		for _, p := range strings.Split(s, "+") {
-			things = append(things, parse(p))
+			parse(p)
 		}
 	} else if strings.Contains(s, ",") {
 		typ = Or
 		for _, p := range strings.Split(s, ",") {
-			things = append(things, parse(p))
+			parse(p)
 		}
 	} else {
 		typ = And
-		things = append(things, parse(s))
+		parse(s)
 	}
 
-	return (typ, things)
+	return typ
 }

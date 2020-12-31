@@ -82,9 +82,16 @@ func readAction(s string) *Action {
 func parseThings(s string) *Things {
 	t := new(Things)
 
-	t.typ, t.things = splitString(s, parseThing)
+	t.things = make([]*Thing, 0)
+	t.typ = splitString(s, readThings(&t.things))
 
 	return t
+}
+
+func readThings(things *[]*Thing) func (string) {
+	return func (s string) {
+		*things = append(*things, parseThing(s))
+	}
 }
 
 func parseThing(s string) *Thing {
