@@ -65,6 +65,7 @@ type Thing struct {
 	arg interface{}
 }
 
+
 func readAction(s string) *Action {
 	act := new(Action)
 
@@ -82,16 +83,22 @@ func readAction(s string) *Action {
 func parseThings(s string) *Things {
 	t := new(Things)
 
-	t.things = make([]*Thing, 0)
-	t.typ = splitString(s, readThings(&t.things))
+	if strings.Contains(s, ";") {
+		t.typ = And
+		for _, p := range strings.Split(s, ";") {
+			t.things = append(t.things, parseThing(p))
+		}
+	} else if strings.Contains(s, ",") {
+		t.typ = Or
+		for _, p := range strings.Split(s, ",") {
+			t.things = append(t.things, parseThing(p))
+		}
+	} else {
+		t.typ = And
+		t.things = append(t.things, parseThing(s))
+	}
 
 	return t
-}
-
-func readThings(things *[]*Thing) func (string) {
-	return func (s string) {
-		*things = append(*things, parseThing(s))
-	}
 }
 
 func parseThing(s string) *Thing {

@@ -2,7 +2,6 @@ package main
 
 import (
 	"strconv"
-	"strings"
 )
 
 type Food int
@@ -46,25 +45,4 @@ func Atoi(s string) int {
 	}
 
 	return i
-}
-
-func splitString (s string, parse func(string)) JoinType {
-	typ := And
-
-	if strings.Contains(s, "+") {
-		typ = And
-		for _, p := range strings.Split(s, "+") {
-			parse(p)
-		}
-	} else if strings.Contains(s, ",") {
-		typ = Or
-		for _, p := range strings.Split(s, ",") {
-			parse(p)
-		}
-	} else {
-		typ = And
-		parse(s)
-	}
-
-	return typ
 }
