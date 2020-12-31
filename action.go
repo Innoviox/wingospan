@@ -101,9 +101,9 @@ func parseThings(s string) *Things {
 		for _, p := range strings.Split(s, "+") {
 			t.things = append(t.things, parseThing(p))
 		}
-	} else if strings.Contains(s, ",") {
+	} else if strings.Contains(s, "/") {
 		t.typ = Or
-		for _, p := range strings.Split(s, ",") {
+		for _, p := range strings.Split(s, "/") {
 			t.things = append(t.things, parseThing(p))
 		}
 	} else {

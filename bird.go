@@ -22,5 +22,10 @@ func (b *Bird) activateBrown(g *Game, p *Player) {
 		return
 	}
 
-	
+	switch b.action.cause.typ {
+	case And:
+		//for _, t := range b.action.cause.things {
+		//
+		//}
+	}
 }
