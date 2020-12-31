@@ -96,9 +96,9 @@ func readAction(s string) *Action {
 func parseThings(s string) *Things {
 	t := new(Things)
 
-	if strings.Contains(s, ";") {
+	if strings.Contains(s, "+") {
 		t.typ = And
-		for _, p := range strings.Split(s, ";") {
+		for _, p := range strings.Split(s, "+") {
 			t.things = append(t.things, parseThing(p))
 		}
 	} else if strings.Contains(s, ",") {
@@ -117,7 +117,7 @@ func parseThings(s string) *Things {
 func parseThing(s string) *Thing {
 	t := new(Thing)
 
-	t.typ = ThingType(s[0] - 65)
+	t.typ = ThingType(strings.Index("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef", string(s[0])))
 
 	if len(s) > 1 {
 		arg := s[1:]
@@ -151,7 +151,29 @@ func (a *Action) String() string {
 func (t *Things) String() string {
 	var br strings.Builder
 
-	fmt.Fprintf(&br, "%s %s %s", a.typ.String(), a.cause.String(), a.effect.String())
+	fmt.Fprintf(&br, "%s ", t.typ.String())
+
+	for _, i := range t.things {
+		fmt.Fprintf(&br, "%s", i.String())
+	}
+
+	return br.String()
+}
+
+func (t *Thing) String() string {
+	var br strings.Builder
+
+	fmt.Fprintf(&br, "(%s ", t.typ.String())
+
+	switch v := t.arg.(type) {
+	case Food: fmt.Fprintf(&br, v.String()) // why can't i do the thing :(
+	case Nest: fmt.Fprintf(&br, v.String())
+	case Region: fmt.Fprintf(&br, v.String())
+	case int: fmt.Fprintf(&br, "%d", v)
+	case *Thing: fmt.Fprintf(&br, v.String())
+	}
+
+	fmt.Fprintf(&br, ")")
 
 	return br.String()
 }

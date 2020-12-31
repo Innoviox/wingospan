@@ -22,7 +22,7 @@ func main() {
 			continue
 		}
 
-		b := Bird {
+		game.deck = append(game.deck, Bird {
 			name:     line[0],
 			region:   parseRegion(line[1]),
 			cost:     readCost(line[2]),
@@ -32,8 +32,10 @@ func main() {
 			eggs:     0,
 			wingspan: Atoi(line[6]),
 			action:   readAction(line[8]),
-		}
-		fmt.Println(b.action)
-		game.deck = append(game.deck, b)
+		})
+	}
+
+	for _, bird := range game.deck {
+		fmt.Println(bird.action)
 	}
 }
