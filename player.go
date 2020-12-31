@@ -9,9 +9,9 @@ type Player struct {
 
 func (p *Player) playBird(b Bird, r Region, f []Food, e Eggs) {
 	p.payFood(f)
-	p.payEggs(e)
+	p.payEggs(&e)
 
-	p.discard(b)
+	p.discard(&b)
 
 	p.board.playBird(b, r)
 }
@@ -32,7 +32,8 @@ func (p *Player) layEggs(g *Game, e Eggs, discard *Food) {
 	p.lay(e)
 
 	if discard != nil {
-		p.payFood(discard)
+		f := []Food { *discard }
+		p.payFood(f)
 	}
 
 	p.activate(g, Grasslands)
@@ -57,8 +58,20 @@ func (p *Player) payFood(food []Food) {
 	}
 }
 
-func (p *Player) payEggs(e Eggs) {
-	for _, loc := range e {
+func (p *Player) payEggs(e *Eggs) {
+	for _, loc := range *e {
 		p.board.rows[loc[0]][loc[1]].eggs -= loc[2]
 	}
+}
+
+func (p *Player) discard(b *Bird) {
+	var hand []Bird
+
+	for _, c := range p.hand {
+		if c.name != b.name { // only works because every card is unique
+			hand = append(hand, c)
+		}
+	}
+
+	p.hand = hand
 }
