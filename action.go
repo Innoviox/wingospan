@@ -68,7 +68,7 @@ type Things struct {
 
 type Thing struct {
 	typ ThingType
-	arg int
+	arg interface{}
 }
 
 func parse(s string) *Action {
@@ -113,18 +113,16 @@ func parseThing(s string) *Thing {
 
 	if len(s) > 1 {
 		arg := s[1:]
+		i, _ := strconv.Atoi(arg)
+
 		switch t.typ {
 		case GainSupply, DiscardFood, GainFromBirdfeeder, Cache, RollOutside, GainFoodAction, GainAllFromBirdfeeder:
-			i, _ := strconv.Atoi(arg)
 			t.arg = Food(i)
 		case LayEggAny, LayEggAnother, LayEggEach:
-			i, _ := strconv.Atoi(arg)
 			t.arg = Nest(i)
 		case PlayersWithFewest, PlayBirdAction:
-			i, _ := strconv.Atoi(arg)
 			t.arg = Region(i)
 		case Hunt:
-			i, _ := strconv.Atoi(arg)
 			t.arg = i
 		case AllPlayers:
 			t.arg = parseThing(arg)
