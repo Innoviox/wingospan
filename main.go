@@ -3,10 +3,14 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().Unix())
+
 	game := new(Game)
 
 	// readAction birds
