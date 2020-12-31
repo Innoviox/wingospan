@@ -75,3 +75,12 @@ func (p *Player) discard(b *Bird) {
 
 	p.hand = hand
 }
+
+func (p *Player) birdfeeder(g *Game, f Food) {
+	for _, d := range g.birdfeeder.diceIn {
+		if d.hasFood(f) {
+			p.food[f]++
+			g.birdfeeder.remove(d)
+		}
+	}
+}
