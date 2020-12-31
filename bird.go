@@ -16,3 +16,11 @@ type Bird struct { // todo store name types for bonus; images
 
 	action *Action
 }
+
+func (b *Bird) activateBrown(g *Game, p *Player) {
+	if b.action.typ != Activated {
+		return
+	}
+
+	
+}
