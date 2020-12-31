@@ -52,9 +52,9 @@ func splitString[type T] (s string, parse func(string) *T) (JoinType, []*T) {
 	typ := And
 	things := make([]*T, 0)
 
-	if strings.Contains(s, ";") {
+	if strings.Contains(s, "+") {
 		typ = And
-		for _, p := range strings.Split(s, ";") {
+		for _, p := range strings.Split(s, "+") {
 			things = append(things, parse(p))
 		}
 	} else if strings.Contains(s, ",") {

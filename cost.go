@@ -10,5 +10,5 @@ type Component struct {
 }
 
 func readCost(s string) Cost {
-	
+
 }
