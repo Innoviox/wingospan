@@ -114,16 +114,19 @@ func parseThing(s string) *Thing {
 	if len(s) > 1 {
 		arg := s[1:]
 		switch t.typ {
-		case :
+		case GainSupply, DiscardFood, GainFromBirdfeeder, Cache, RollOutside, GainFoodAction, GainAllFromBirdfeeder:
 			i, _ := strconv.Atoi(arg)
 			t.arg = Food(i)
-		case :
+		case LayEggAny, LayEggAnother, LayEggEach:
 			i, _ := strconv.Atoi(arg)
 			t.arg = Nest(i)
-		case :
+		case PlayersWithFewest, PlayBirdAction:
 			i, _ := strconv.Atoi(arg)
 			t.arg = Region(i)
-		case :
+		case Hunt:
+			i, _ := strconv.Atoi(arg)
+			t.arg = i
+		case AllPlayers:
 			t.arg = parseThing(arg)
 		}
 	}
