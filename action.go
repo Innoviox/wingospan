@@ -49,12 +49,6 @@ const (
 	SuccessfulHunt
 )
 
-type JoinType int
-const (
-	And JoinType = iota
-	Or
-)
-
 type Action struct {
 	typ ActionType
 	cause *Things
@@ -88,20 +82,7 @@ func readAction(s string) *Action {
 func parseThings(s string) *Things {
 	t := new(Things)
 
-	if strings.Contains(s, ";") {
-		t.typ = And
-		for _, p := range strings.Split(s, ";") {
-			t.things = append(t.things, parseThing(p))
-		}
-	} else if strings.Contains(s, ",") {
-		t.typ = Or
-		for _, p := range strings.Split(s, ",") {
-			t.things = append(t.things, parseThing(p))
-		}
-	} else {
-		t.typ = And
-		t.things = append(t.things, parseThing(s))
-	}
+	t.typ, t.things = splitString(s, parseThing)
 
 	return t
 }

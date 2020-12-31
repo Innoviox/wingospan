@@ -6,8 +6,9 @@ type Cost struct {
 
 type Component struct {
 	options []Food
+	typ JoinType
 }
 
 func readCost(s string) Cost {
-
+	
 }
