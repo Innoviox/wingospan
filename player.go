@@ -41,7 +41,7 @@ func (p *Player) layEggs(g *Game, e Eggs, discard *Food) {
 
 func (p *Player) drawCards(g *Game, tray []int, ndeck int, discard *Eggs) {
 	for _, i := range tray {
-		p.draw(g.drawTray(i))
+		p.draw([]Bird { g.drawTray(i) })
 	}
 	p.draw(g.draw(ndeck))
 

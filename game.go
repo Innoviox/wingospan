@@ -18,7 +18,7 @@ func (g *Game) init(nplayers int) {
 		g.players = append(g.players, &Player {
 			board: new(Board),
 			food: map[Food]int {
-				Worm: 1, Seed: 1, Fish: 1, Rodent: 1, Berry: 1
+				Worm: 1, Seed: 1, Fish: 1, Rodent: 1, Berry: 1,
 			},
 			hand: g.draw(5),
 			// todo bonus
@@ -39,5 +39,19 @@ func (g *Game) draw(n int) []Bird {
 		b = append(b, g.deck[0])
 		g.deck = g.deck[1:]
 	}
+	return b
+}
+
+func (g *Game) drawTray(idx int) Bird {
+	var t []Bird
+
+	for i, b := range g.tray {
+		if i != idx {
+			t = append(t, b)
+		}
+	}
+
+	b := g.tray[idx]
+	g.tray = t
 	return b
 }
