@@ -94,3 +94,9 @@ func (p *Player) birdfeeder(g *Game, f Food) {
 func (p *Player) draw(cards []Bird) {
 	p.hand = append(p.hand, cards...)
 }
+
+func (p *Player) activate(g *Game, r Region) {
+	for i := p.board.r_idxs[r]; i >= 0; i-- {
+		p.board.rows[r][i].activate(g)
+	}
+}
