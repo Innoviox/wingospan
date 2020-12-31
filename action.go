@@ -116,7 +116,7 @@ func parseThings(s string) *Things {
 
 func parseThing(s string) *Thing {
 	t := new(Thing)
-	
+
 	t.typ = ThingType(strings.Index("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef", string(s[0])))
 
 	if len(s) > 1 {
@@ -143,7 +143,11 @@ func parseThing(s string) *Thing {
 func (a *Action) String() string {
 	var br strings.Builder
 
-	fmt.Fprintf(&br, "%s %s %s", a.typ.String(), a.cause.String(), a.effect.String())
+	fmt.Fprintf(&br, "%s %s ", a.typ.String(), a.cause.String())
+
+	if a.effect != nil {
+		fmt.Fprintf(&br, "%s", a.effect.String())
+	}
 
 	return br.String()
 }
