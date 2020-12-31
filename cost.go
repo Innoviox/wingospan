@@ -7,3 +7,7 @@ type Cost struct {
 type Component struct {
 	options []Food
 }
+
+func readCost(s string) Cost {
+
+}

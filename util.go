@@ -1,5 +1,7 @@
 package main
 
+import "strconv"
+
 type Food int
 const (
 	Worm Food = iota
@@ -26,3 +28,12 @@ const ( // todo right names
 	Waterlands
 )
 
+func Atoi(s string) int {
+	i, err := strconv.Atoi(s)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return i
+}

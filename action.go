@@ -71,7 +71,7 @@ type Thing struct {
 	arg interface{}
 }
 
-func parse(s string) *Action {
+func readAction(s string) *Action {
 	act := new(Action)
 
 	parts := strings.Split(s, ",")
