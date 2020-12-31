@@ -71,3 +71,5 @@ func parseRegion(s string) []Region {
 	}
 	return r
 }
+
+type EggPayment [][]int // a list of (region, birdn, #eggs)

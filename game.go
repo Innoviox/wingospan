@@ -1,7 +1,7 @@
 package main
 
 type Game struct {
-	players []Player
+	players []*Player
 
 	deck []Bird
 	tray []Bird
@@ -15,7 +15,7 @@ func (g *Game) init(nplayers int) {
 	g.tray = g.draw(3)
 
 	for i := 0; i < nplayers; i++ {
-		g.players = append(g.players, Player {
+		g.players = append(g.players, &Player {
 			board: new(Board),
 			food: []Food { Worm, Seed, Fish, Rodent, Berry },
 			hand: g.draw(5),

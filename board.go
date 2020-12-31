@@ -2,6 +2,7 @@ package main
 
 type Board struct {
 	rows [3][]Bird
+	r_idxs [3]int
 }
 
 func (b *Board) rawScore() int {
@@ -16,3 +17,7 @@ func (b *Board) rawScore() int {
 	return s
 }
 
+func (b *Board) playBird(bird Bird, r Region) {
+	b.rows[r][b.r_idxs[r]] = bird
+	b.r_idxs[r]++
+}
