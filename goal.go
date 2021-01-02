@@ -23,7 +23,7 @@ func birdsInRegion(region Region) GoalDef {
 	return func (p *Player) int {
 		total := 0
 
-		for _ := range p.board.rows[region] {
+		for _ = range p.board.rows[region] {
 			total++
 		}
 
@@ -68,11 +68,17 @@ func totalBirds() GoalDef {
 		total := 0
 
 		for _, row := range p.board.rows {
-			for _ := range row {
+			for _ = range row {
 				total++
 			}
 		}
 
 		return total
+	}
+}
+
+func sets() GoalDef {
+	return func (p *Player) int {
+		return 0 // todo
 	}
 }
