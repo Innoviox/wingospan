@@ -102,3 +102,16 @@ func (p *Player) activate(g *Game, r Region) {
 		p.board.rows[r][i].activateBrown(g, p)
 	}
 }
+
+// Mark: Move generation methods
+type Discard struct {
+	birdDiscard []int
+	foodDiscard []int
+	bonusDiscard int // todo
+}
+
+func (p *Player) pregame() []Discard {
+	moves := make([]Discard, 0)
+
+	return moves
+}
