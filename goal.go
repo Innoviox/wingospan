@@ -7,6 +7,15 @@ import (
 
 type GoalDef func (*Player) int
 
+var (
+	points = [4][5]int {
+		{ 4, 1, 0, 0, 0 },
+		{ 5, 2, 1, 0, 0 },
+		{ 6, 3, 2, 0, 0 },
+		{ 7, 4, 3, 0, 0 },
+	}
+)
+
 type Goal struct {
 	sides [2]GoalDef
 	chosen int
@@ -141,4 +150,12 @@ func (g *Game) scoreGoals() {
 		i++
 	}
 	sort.Sort(order)
+
+	j := 0
+	for _, o := range order {
+		for _, p := range scores[o] {
+			p.score += points[g.round][j]
+			j++
+		}
+	}
 }
