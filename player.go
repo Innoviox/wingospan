@@ -5,6 +5,8 @@ type Player struct {
 	food map[Food]int
 	hand []Bird
 	bonus []Bonus
+
+	score int
 }
 
 func (p *Player) playBird(b Bird, r Region, f []Food, e Eggs) {

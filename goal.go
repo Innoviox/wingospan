@@ -1,5 +1,9 @@
 package main
 
+import (
+	"math/rand"
+)
+
 type GoalDef func (*Player) int
 
 type Goal struct {
@@ -86,16 +90,30 @@ func sets() GoalDef {
 func allGoals() []Goal {
 	goals := make([]Goal, 0)
 
-	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Forest), birdsInRegion(Forest) }, 0 })
-	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Grasslands), birdsInRegion(Grasslands) }, 0 })
-	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Waterlands), birdsInRegion(Waterlands) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Forest), birdsInRegion(Forest) }, rand.Intn(2) })
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Grasslands), birdsInRegion(Grasslands) }, rand.Intn(2) })
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Waterlands), birdsInRegion(Waterlands) }, rand.Intn(2) })
 
-	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Platform), nestsWithEggs(Platform) }, 0 })
-	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Cup), nestsWithEggs(Cup) }, 0 })
-	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Rocks), nestsWithEggs(Rocks) }, 0 })
-	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Canada), nestsWithEggs(Canada) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Platform), nestsWithEggs(Platform) }, rand.Intn(2) })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Cup), nestsWithEggs(Cup) }, rand.Intn(2) })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Rocks), nestsWithEggs(Rocks) }, rand.Intn(2) })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Canada), nestsWithEggs(Canada) }, rand.Intn(2) })
 
-	goals = append(goals, Goal { [2]GoalDef { totalBirds(), sets() }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { totalBirds(), sets() }, rand.Intn(2) })
 
 	return goals
+}
+
+func (g *Game) chooseGoals() {
+	g.goals = [4]Goal {}
+
+	goals := allGoals()
+
+	for round, idx := range rand.Perm(8)[4:] {
+		g.goals[round] = goals[idx]
+	}
+}
+
+func (g *Game) scoreGoals() {
+	scores := make([]int, 0)
 }

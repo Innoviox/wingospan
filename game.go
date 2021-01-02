@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/csv"
+	"os"
+)
+
 type Game struct {
 	players []*Player
 
@@ -9,9 +14,13 @@ type Game struct {
 	birdfeeder Birdfeeder
 
 	goals [4]Goal
+
+	round int
 }
 
 func (g *Game) init(nplayers int) {
+	g.loadDeck()
+
 	g.tray = g.draw(3)
 
 	for i := 0; i < nplayers; i++ {
@@ -30,9 +39,37 @@ func (g *Game) init(nplayers int) {
 		diceOut: []Dice {},
 	}
 
-	g.goals = [4]Goal {}
+	g.chooseGoals()
 
 	// todo goals
+	// todo shuffle deck
+}
+
+func (g *Game) loadDeck() {
+	g.deck = make([]Bird, 0)
+
+	file, _ := os.Open("parse/birds.csv")
+	r := csv.NewReader(file)
+
+	records, _ := r.ReadAll()
+
+	for i, line := range records {
+		if i == 0 {
+			continue
+		}
+
+		g.deck = append(g.deck, Bird {
+			name:     line[0],
+			region:   parseRegion(line[1]),
+			cost:     readCost(line[2]),
+			points:   Atoi(line[3]),
+			nest:     Nest(Atoi(line[4])),
+			eggLimit: Atoi(line[5]),
+			wingspan: Atoi(line[6]),
+			action:   readAction(line[8]),
+		})
+	}
+	// todo shuffle
 }
 
 func (g *Game) draw(n int) []Bird {
