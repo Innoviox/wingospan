@@ -104,14 +104,29 @@ func (p *Player) activate(g *Game, r Region) {
 }
 
 // Mark: Move generation methods
-type Discard struct {
-	birdDiscard []int
-	foodDiscard []int
-	bonusDiscard int // todo
+type Pregame struct {
+	birdKeep []int
+	foodDiscard []Food
+	bonusKeep int // todo
 }
 
-func (p *Player) pregame() []Discard {
-	moves := make([]Discard, 0)
+func (p *Player) pregame(d Pregame) {
+	var hand []Bird
+	for _, i := range d.birdKeep {
+		hand = append(hand, p.hand[i])
+	}
+	p.hand = hand
+
+
+	for _, i := range d.foodDiscard {
+		p.food[i]--
+	}
+
+	p.bonus = append([]Bonus, p.bonus[d.bonusKeep])
+}
+
+func (p *Player) generatePregame() []Pregame {
+	moves := make([]Pregame, 0)
 
 	return moves
 }
