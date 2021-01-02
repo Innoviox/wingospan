@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"math/rand"
 	"os"
 )
 
@@ -69,7 +70,12 @@ func (g *Game) loadDeck() {
 			action:   readAction(line[8]),
 		})
 	}
-	// todo shuffle
+
+	rand.Shuffle(len(g.deck), func(i, j int) {
+		temp := g.deck[i]
+		g.deck[i] = g.deck[j]
+		g.deck[j] = temp
+	})
 }
 
 func (g *Game) draw(n int) []Bird {

@@ -115,5 +115,7 @@ func (g *Game) chooseGoals() {
 }
 
 func (g *Game) scoreGoals() {
-	scores := make([]int, 0)
+	//scores := make([]int, 0)
+
+
 }
