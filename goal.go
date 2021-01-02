@@ -2,6 +2,7 @@ package main
 
 import (
 	"math/rand"
+	"sort"
 )
 
 type GoalDef func (*Player) int
@@ -9,6 +10,10 @@ type GoalDef func (*Player) int
 type Goal struct {
 	sides [2]GoalDef
 	chosen int
+}
+
+func (g Goal) upface() GoalDef {
+	return g.sides[g.chosen]
 }
 
 func eggsInRegion(region Region) GoalDef {
@@ -115,7 +120,25 @@ func (g *Game) chooseGoals() {
 }
 
 func (g *Game) scoreGoals() {
-	//scores := make([]int, 0)
+	var scores = map[int][]*Player{}
 
+	goal := g.goals[g.round].upface()
+	for _, p := range g.players {
+		val := goal(p)
+		arr, in := scores[val]
 
+		if in {
+			scores[val] = append(arr, p)
+		} else {
+			scores[val] = []*Player { p }
+		}
+	}
+
+	var order sort.IntSlice = make([]int, len(scores))
+	i := 0
+	for k := range scores {
+		order[i] = k
+		i++
+	}
+	sort.Sort(order)
 }
