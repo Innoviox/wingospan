@@ -30,6 +30,8 @@ func (g *Game) init(nplayers int) {
 		diceOut: []Dice {},
 	}
 
+	g.goals = [4]Goal {}
+
 	// todo goals
 }
 

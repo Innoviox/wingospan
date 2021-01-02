@@ -82,3 +82,20 @@ func sets() GoalDef {
 		return 0 // todo
 	}
 }
+
+func allGoals() []Goal {
+	goals := make([]Goal, 0)
+
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Forest), birdsInRegion(Forest) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Grasslands), birdsInRegion(Grasslands) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInRegion(Waterlands), birdsInRegion(Waterlands) }, 0 })
+
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Platform), nestsWithEggs(Platform) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Cup), nestsWithEggs(Cup) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Rocks), nestsWithEggs(Rocks) }, 0 })
+	goals = append(goals, Goal { [2]GoalDef { eggsInNest(Canada), nestsWithEggs(Canada) }, 0 })
+
+	goals = append(goals, Goal { [2]GoalDef { totalBirds(), sets() }, 0 })
+
+	return goals
+}
