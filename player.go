@@ -122,11 +122,13 @@ func (p *Player) pregame(d Pregame) {
 		p.food[i]--
 	}
 
-	p.bonus = append([]Bonus, p.bonus[d.bonusKeep])
+	p.bonus = append([]Bonus {}, p.bonus[d.bonusKeep])
 }
 
 func (p *Player) generatePregame() []Pregame {
 	moves := make([]Pregame, 0)
+
+	for
 
 	return moves
 }
