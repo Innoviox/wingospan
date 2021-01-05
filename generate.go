@@ -87,11 +87,16 @@ func (p *Player) generateMoves() []Move {
 		}
 	}
 
+	amounts := [6]int { 1, 1, 2, 2, 3, 3 }
+
 	// gain food
+	nFood := amounts[len(p.board.rows[0])]
 
 	// lay eggs
+	nEggs := amounts[len(p.board.rows[1])]
 
 	// draw cards
+	nCards := amounts[len(p.board.rows[2])]
 
 	return moves
 }
