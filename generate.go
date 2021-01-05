@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"github.com/mxschmitt/golang-combinations"
 	"strconv"
 )
-
 
 func (p *Player) generatePregame() []Pregame {
 	moves := make([]Pregame, 0)
@@ -47,4 +45,32 @@ func (p *Player) generatePregame() []Pregame {
 	}
 
 	return moves
+}
+
+type funcArgs struct {
+	g *Game
+
+	// play bird
+	b Bird
+	r Region
+	f []Food
+
+	// lay eggs
+	e Eggs
+
+	// draw cards
+	tray []int
+	ndeck int
+
+	discardBird *Bird
+	discardFood *Food
+	discardEggs *Eggs
+}
+
+type Move func(f funcArgs)
+
+func (p *Player) generateMoves() []Move {
+	moves := make([]Move, 0)
+
+	// play birds
 }
