@@ -117,18 +117,9 @@ func (p *Player) pregame(d Pregame) {
 	}
 	p.hand = hand
 
-
 	for _, i := range d.foodDiscard {
 		p.food[i]--
 	}
 
-	p.bonus = append([]Bonus {}, p.bonus[d.bonusKeep])
-}
-
-func (p *Player) generatePregame() []Pregame {
-	moves := make([]Pregame, 0)
-
-	//for
-
-	return moves
+	p.bonus = append([]Bonus{}, p.bonus[d.bonusKeep])
 }
