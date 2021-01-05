@@ -67,10 +67,31 @@ type funcArgs struct {
 	discardEggs *Eggs
 }
 
-type Move func(f funcArgs)
+type Move struct {
+	f func(funcArgs)
+	a funcArgs
+}
 
 func (p *Player) generateMoves() []Move {
 	moves := make([]Move, 0)
 
 	// play birds
+	for _, b := range p.hand {
+		for _, r := range b.region {
+			for _, f := range b.cost.options() {
+				moves = append(moves, Move {
+					p.playBird,
+					funcArgs { b: b, r: r, f: f },
+				})
+			}
+		}
+	}
+
+	// gain food
+
+	// lay eggs
+
+	// draw cards
+
+	return moves
 }

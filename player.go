@@ -9,49 +9,49 @@ type Player struct {
 	score int
 }
 
-func (p *Player) playBird(b Bird, r Region, f []Food, e Eggs) {
-	p.payFood(f)
-	p.payEggs(&e)
+func (p *Player) playBird(args funcArgs) {
+	p.payFood(args.f)
+	p.payEggs(&args.e)
 
-	p.discard(&b)
+	p.discard(&args.b)
 
-	p.board.playBird(b, r)
+	p.board.playBird(args.b, args.r)
 }
 
-func (p *Player) gainFood(g *Game, food []Food, discard *Bird) {
-	for _, f := range food {
-		p.birdfeeder(g, f)
+func (p *Player) gainFood(args funcArgs) {
+	for _, f := range args.f {
+		p.birdfeeder(args.g, f)
 	}
 
-	if discard != nil {
-		p.discard(discard)
+	if args.discardBird != nil {
+		p.discard(args.discardBird)
 	}
 
-	p.activate(g, Forest)
+	p.activate(args.g, Forest)
 }
 
-func (p *Player) layEggs(g *Game, e Eggs, discard *Food) {
-	p.lay(e)
+func (p *Player) layEggs(args funcArgs) {
+	p.lay(args.e)
 
-	if discard != nil {
-		f := []Food { *discard }
+	if args.discardFood != nil {
+		f := []Food { *args.discardFood }
 		p.payFood(f)
 	}
 
-	p.activate(g, Grasslands)
+	p.activate(args.g, Grasslands)
 }
 
-func (p *Player) drawCards(g *Game, tray []int, ndeck int, discard *Eggs) {
-	for _, i := range tray {
-		p.draw([]Bird { g.drawTray(i) })
+func (p *Player) drawCards(args funcArgs) {
+	for _, i := range args.tray {
+		p.draw([]Bird { args.g.drawTray(i) })
 	}
-	p.draw(g.draw(ndeck))
+	p.draw(args.g.draw(args.ndeck))
 
-	if discard != nil {
-		p.payEggs(discard)
+	if args.discardEggs != nil {
+		p.payEggs(args.discardEggs)
 	}
 
-	p.activate(g, Waterlands)
+	p.activate(args.g, Waterlands)
 }
 
 func (p *Player) payFood(food []Food) {
