@@ -128,7 +128,7 @@ func (p *Player) pregame(d Pregame) {
 func (p *Player) generatePregame() []Pregame {
 	moves := make([]Pregame, 0)
 
-	for
+	//for
 
 	return moves
 }
