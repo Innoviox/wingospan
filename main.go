@@ -10,4 +10,6 @@ func main() {
 
 	game := new(Game)
 	game.init(5)
+
+	game.players[0].generatePregame()
 }
