@@ -79,7 +79,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 	// play birds
 	for _, b := range p.hand {
 		for _, r := range b.region {
-			for _, f := range b.cost.options() { // todo make sure cost can be paid
+			for _, f := range b.cost.options() {
 				if p.canPay(f) {
 					moves = append(moves, Move{
 						PlayBird,
@@ -109,7 +109,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 	}
 
 	// lay eggs
-	nEggs := amounts[len(p.board.rows[1])]
+	nEggs := amounts[len(p.board.rows[1])] + 1
 	spots := make([]string, 0)
 	for x, r := range p.board.rows {
 		for y, b := range r {
@@ -121,8 +121,8 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 	for _, comb := range combinations.Combinations(spots, nEggs) {
 		var e Eggs = make([][3]int, len(comb))
-		for _, spot := range comb {
-			e = append(e, [3]int { int(spot[0] - 48), int(spot[1] - 48), 1 }) // todo condense?
+		for i, spot := range comb {
+			e[i] = [3]int { int(spot[0] - 48), int(spot[1] - 48), 1 } // todo condense?
 		}
 
 		moves = append(moves, Move {

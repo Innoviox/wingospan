@@ -21,8 +21,6 @@ func main() {
 		fmt.Println(b.name, b.cost)
 	}
 
-	fmt.Println(p.food)
-
 	for _, m := range p.generateMoves(game) {
 		if m.t == PlayBird {
 			fmt.Println(m.a.b, m.a.r, m.a.f)
@@ -31,5 +29,11 @@ func main() {
 		}
 	}
 
-	fmt.Println(p.food)
+	for _, m := range p.generateMoves(game) {
+		if m.t == LayEggs {
+			fmt.Println(m.a.e)
+			m.f(m.a)
+			break
+		}
+	}
 }

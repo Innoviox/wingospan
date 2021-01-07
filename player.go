@@ -115,8 +115,8 @@ func (p *Player) draw(cards []Bird) {
 }
 
 func (p *Player) activate(g *Game, r Region) {
-	for i := p.board.r_idxs[r]; i >= 0; i-- {
-		p.board.rows[r][i].activateBrown(g, p)
+	for i := p.board.r_idxs[r]; i > 0; i-- {
+		p.board.rows[r][i - 1].activateBrown(g, p)
 	}
 }
 
