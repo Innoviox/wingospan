@@ -61,6 +61,15 @@ func (p *Player) payFood(food []Food) {
 	}
 }
 
+func (p *Player) canPay(food []Food) bool {
+	for _, f := range food {
+		if p.food[f] == 0 {
+			return false
+		}
+	}
+	return true
+}
+
 func (p *Player) payEggs(e *Eggs) {
 	for _, loc := range *e {
 		p.board.rows[loc[0]][loc[1]].eggs -= loc[2]

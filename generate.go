@@ -79,10 +79,12 @@ func (p *Player) generateMoves(g *Game) []Move {
 	for _, b := range p.hand {
 		for _, r := range b.region {
 			for _, f := range b.cost.options() { // todo make sure cost can be paid
-				moves = append(moves, Move {
-					p.playBird,
-					funcArgs { g: g, b: b, r: r, f: f },
-				})
+				if p.canPay(f) {
+					moves = append(moves, Move{
+						p.playBird,
+						funcArgs{g: g, b: b, r: r, f: f},
+					})
+				}
 			}
 		}
 	}
