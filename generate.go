@@ -5,8 +5,36 @@ import (
 	"strconv"
 )
 
-func (p *Player) generatePregame() []Pregame {
-	moves := make([]Pregame, 0)
+type funcArgs struct {
+	g *Game
+
+	// play bird
+	b Bird
+	r Region
+	f []Food
+
+	// lay eggs
+	e Eggs
+
+	// draw cards
+	tray []int
+	ndeck int
+
+	discardBird *Bird
+	discardFood *Food
+	discardEggs *Eggs
+
+	p Pregame
+}
+
+type Move struct {
+	t MoveType
+	f func(funcArgs)
+	a funcArgs
+}
+
+func (p *Player) generatePregame() []Move {
+	moves := make([]Move, 0)
 
 	s := make([]string, 0)
 	for i := 0; i < 5; i++ {
@@ -40,37 +68,15 @@ func (p *Player) generatePregame() []Pregame {
 				}
 			}
 
-			moves = append(moves, Pregame { birdKeep, foodDiscard, bonusKeep })
+			moves = append(moves, Move {
+				PreGame,
+				p.pregame,
+				funcArgs { p: Pregame { birdKeep, foodDiscard, bonusKeep } },
+			})
 		}
 	}
 
 	return moves
-}
-
-type funcArgs struct {
-	g *Game
-
-	// play bird
-	b Bird
-	r Region
-	f []Food
-
-	// lay eggs
-	e Eggs
-
-	// draw cards
-	tray []int
-	ndeck int
-
-	discardBird *Bird
-	discardFood *Food
-	discardEggs *Eggs
-}
-
-type Move struct {
-	t MoveType
-	f func(funcArgs)
-	a funcArgs
 }
 
 func (p *Player) generateMoves(g *Game) []Move {

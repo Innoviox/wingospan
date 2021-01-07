@@ -127,16 +127,16 @@ type Pregame struct {
 	bonusKeep int // todo
 }
 
-func (p *Player) pregame(d Pregame) {
+func (p *Player) pregame(f funcArgs) {
 	var hand []Bird
-	for _, i := range d.birdKeep {
+	for _, i := range f.p.birdKeep {
 		hand = append(hand, p.hand[i])
 	}
 	p.hand = hand
 
-	for _, i := range d.foodDiscard {
+	for _, i := range f.p.foodDiscard {
 		p.food[i]--
 	}
 
-	//p.bonus = append([]Bonus{}, p.bonus[d.bonusKeep])
+	//p.bonus = append([]Bonus{}, p.bonus[f.p.bonusKeep])
 }

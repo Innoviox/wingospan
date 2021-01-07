@@ -60,10 +60,11 @@ const (
 	GainFood
 	LayEggs
 	DrawCards
+	PreGame
 )
 
 func (m MoveType) String() string {
-	return[...]string{"PlayBird","GainFood","LayEggs","DrawCards"}[m]
+	return[...]string{"PlayBird","GainFood","LayEggs","DrawCards","PreGame"}[m]
 }
 
 func Atoi(s string) int {
