@@ -62,11 +62,18 @@ func (p *Player) payFood(food []Food) {
 }
 
 func (p *Player) canPay(food []Food) bool {
+	totals := map[Food]int {}
+
 	for _, f := range food {
-		if p.food[f] == 0 {
+		totals[f]++
+	}
+
+	for k, v := range totals {
+		if v > p.food[k] {
 			return false
 		}
 	}
+
 	return true
 }
 

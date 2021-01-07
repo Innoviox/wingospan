@@ -25,11 +25,11 @@ func main() {
 
 	for _, m := range p.generateMoves(game) {
 		if m.t == PlayBird {
-			fmt.Println(m)
+			fmt.Println(m.a.b, m.a.r, m.a.f)
 			m.f(m.a)
 			break
 		}
 	}
 
-	fmt.Println(p.board.rows, p.board.r_idxs, p.food)
+	fmt.Println(p.food)
 }
