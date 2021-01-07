@@ -30,7 +30,7 @@ func main() {
 	}
 
 	for _, m := range p.generateMoves(game) {
-		if m.t == LayEggs {
+		if m.t == GainFood {
 			fmt.Println(m.a.e)
 			m.f(m.a)
 			break
