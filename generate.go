@@ -128,13 +128,15 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 	// draw cards
 	nCards := amounts[len(p.board.rows[2])]
-	for nTray := 0; nTray < 3; nTray++ {
+	for nTray := 1; nTray <= 3; nTray++ {
 		nDeck := nCards - nTray
+
+		if nDeck < 0 { continue }
 
 		for _, comb := range combinations.Combinations([]string { "0", "1", "2" }, nTray) {
 			tray := make([]int, nTray)
-			for _, c := range comb {
-				tray = append(tray, Atoi(c))
+			for i, c := range comb {
+				tray[i] = Atoi(c)
 			}
 
 			moves = append(moves, Move {
@@ -143,6 +145,10 @@ func (p *Player) generateMoves(g *Game) []Move {
 			})
 		}
 	}
+	moves = append(moves, Move {
+		p.drawCards,
+		funcArgs { g: g, tray: []int {}, ndeck: nCards },
+	})
 
 	return moves
 }
