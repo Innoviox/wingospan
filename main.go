@@ -12,9 +12,18 @@ func main() {
 	game := new(Game)
 	game.init(5)
 
-	//game.players[0].generatePregame()
+	p := game.players[0]
 
-	for _, b := range game.deck {
-		fmt.Println(b.cost, b.cost.options())
+	pre := p.generatePregame()
+	p.pregame(pre[rand.Intn(len(pre))])
+
+	for _, b := range p.hand {
+		fmt.Println(b.name, b.cost)
+	}
+
+	fmt.Println(p.food)
+
+	for _, m := range p.generateMoves(game) {
+		fmt.Println(m)
 	}
 }

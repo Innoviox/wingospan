@@ -78,7 +78,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 	// play birds
 	for _, b := range p.hand {
 		for _, r := range b.region {
-			for _, f := range b.cost.options() {
+			for _, f := range b.cost.options() { // todo make sure cost can be paid
 				moves = append(moves, Move {
 					p.playBird,
 					funcArgs { g: g, b: b, r: r, f: f },
@@ -133,8 +133,8 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 		for _, comb := range combinations.Combinations([]string { "0", "1", "2" }, nTray) {
 			tray := make([]int, nTray)
-			for i, c := range comb {
-				tray[i] = Atoi(c)
+			for _, c := range comb {
+				tray = append(tray, Atoi(c))
 			}
 
 			moves = append(moves, Move {
