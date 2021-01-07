@@ -91,12 +91,38 @@ func (p *Player) generateMoves() []Move {
 
 	// gain food
 	nFood := amounts[len(p.board.rows[0])]
+	for _, comb := range combrep(nFood, []string { "0", "1", "2", "3", "4" }) {
+		food := make([]Food, nFood)
+		for i, c := range comb {
+			food[i] = Food(Atoi(c))
+		}
+
+		moves = append(moves, Move {
+			p.gainFood,
+			funcArgs { f: food },
+		})
+	}
 
 	// lay eggs
 	nEggs := amounts[len(p.board.rows[1])]
 
 	// draw cards
 	nCards := amounts[len(p.board.rows[2])]
+	for nTray := 0; nTray < 3; nTray++ {
+		nDeck := nCards - nTray
+
+		for _, comb := range combinations.Combinations([]string { "0", "1", "2" }, nTray) {
+			tray := make([]int, nTray)
+			for i, c := range comb {
+				tray[i] = Atoi(c)
+			}
+
+			moves = append(moves, Move {
+				p.drawCards,
+				funcArgs { tray: tray, ndeck: nDeck },
+			})
+		}
+	}
 
 	return moves
 }

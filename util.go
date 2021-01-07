@@ -64,6 +64,20 @@ func Atoi(s string) int {
 	return i
 }
 
+func combrep(n int, lst []string) [][]string {
+	if n == 0 {
+		return [][]string{nil}
+	}
+	if len(lst) == 0 {
+		return nil
+	}
+	r := combrep(n, lst[1:])
+	for _, x := range combrep(n-1, lst) {
+		r = append(r, append(x, lst[0]))
+	}
+	return r
+}
+
 func parseRegion(s string) []Region {
 	r := make([]Region, 0)
 	for _, i := range strings.Split(s, "/") {
