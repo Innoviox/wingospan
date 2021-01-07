@@ -72,7 +72,7 @@ type Move struct {
 	a funcArgs
 }
 
-func (p *Player) generateMoves() []Move {
+func (p *Player) generateMoves(g *Game) []Move {
 	moves := make([]Move, 0)
 
 	// play birds
@@ -81,7 +81,7 @@ func (p *Player) generateMoves() []Move {
 			for _, f := range b.cost.options() {
 				moves = append(moves, Move {
 					p.playBird,
-					funcArgs { b: b, r: r, f: f },
+					funcArgs { g: g, b: b, r: r, f: f },
 				})
 			}
 		}
@@ -99,12 +99,32 @@ func (p *Player) generateMoves() []Move {
 
 		moves = append(moves, Move {
 			p.gainFood,
-			funcArgs { f: food },
+			funcArgs { g: g, f: food },
 		})
 	}
 
 	// lay eggs
 	nEggs := amounts[len(p.board.rows[1])]
+	spots := make([]string, 0)
+	for x, r := range p.board.rows {
+		for y, b := range r {
+			for i := 0; i < (b.eggLimit - b.eggs); i++ {
+				spots = append(spots, strconv.Itoa(x) + strconv.Itoa(y))
+			}
+		}
+	}
+
+	for _, comb := range combinations.Combinations(spots, nEggs) {
+		var e Eggs = make([][3]int, len(comb))
+		for _, spot := range comb {
+			e = append(e, [3]int { int(spot[0] - 48), int(spot[1] - 48), 1 }) // todo condense?
+		}
+
+		moves = append(moves, Move {
+			p.layEggs,
+			funcArgs { g: g, e: e },
+		})
+	}
 
 	// draw cards
 	nCards := amounts[len(p.board.rows[2])]
@@ -119,7 +139,7 @@ func (p *Player) generateMoves() []Move {
 
 			moves = append(moves, Move {
 				p.drawCards,
-				funcArgs { tray: tray, ndeck: nDeck },
+				funcArgs { g: g, tray: tray, ndeck: nDeck },
 			})
 		}
 	}
