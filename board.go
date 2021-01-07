@@ -18,6 +18,6 @@ func (b *Board) rawScore() int {
 }
 
 func (b *Board) playBird(bird Bird, r Region) {
-	b.rows[r][b.r_idxs[r]] = bird
+	b.rows[r] = append(b.rows[r], bird)
 	b.r_idxs[r]++
 }

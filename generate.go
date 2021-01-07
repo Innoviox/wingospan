@@ -68,6 +68,7 @@ type funcArgs struct {
 }
 
 type Move struct {
+	t MoveType
 	f func(funcArgs)
 	a funcArgs
 }
@@ -81,6 +82,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 			for _, f := range b.cost.options() { // todo make sure cost can be paid
 				if p.canPay(f) {
 					moves = append(moves, Move{
+						PlayBird,
 						p.playBird,
 						funcArgs{g: g, b: b, r: r, f: f},
 					})
@@ -100,6 +102,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 		}
 
 		moves = append(moves, Move {
+			GainFood,
 			p.gainFood,
 			funcArgs { g: g, f: food },
 		})
@@ -123,6 +126,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 		}
 
 		moves = append(moves, Move {
+			LayEggs,
 			p.layEggs,
 			funcArgs { g: g, e: e },
 		})
@@ -142,12 +146,14 @@ func (p *Player) generateMoves(g *Game) []Move {
 			}
 
 			moves = append(moves, Move {
+				DrawCards,
 				p.drawCards,
 				funcArgs { g: g, tray: tray, ndeck: nDeck },
 			})
 		}
 	}
 	moves = append(moves, Move {
+		DrawCards,
 		p.drawCards,
 		funcArgs { g: g, tray: []int {}, ndeck: nCards },
 	})

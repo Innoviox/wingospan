@@ -54,6 +54,18 @@ func (j JoinType) String() string {
 	return[...]string{"And","Or",")"}[j]
 }
 
+type MoveType int
+const (
+	PlayBird MoveType = iota
+	GainFood
+	LayEggs
+	DrawCards
+)
+
+func (m MoveType) String() string {
+	return[...]string{"PlayBird","GainFood","LayEggs","DrawCards"}[m]
+}
+
 func Atoi(s string) int {
 	i, err := strconv.Atoi(s)
 
