@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Bird struct { // todo store name types for bonus; images
 	name string
 	region []Region
@@ -24,12 +22,15 @@ func (b *Bird) activateBrown(g *Game, p *Player) {
 		return
 	}
 
-	fmt.Println(b.name, "being activated")
+	//fmt.Println(b.name, "being activated")
 
 	switch b.action.cause.typ {
 	case And:
 		//for _, t := range b.action.cause.things {
 		//
 		//}
+		break
+	case Or:
+		break
 	}
 }

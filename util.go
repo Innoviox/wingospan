@@ -103,7 +103,7 @@ type Eggs [][3]int // a list of (region, birdn, #eggs)
 
 // I FUCKING HATE YOU GO. WHAT FUCKING LANGUAGE DOESNT FUCKING HAVE GENERICS. FICK YOU
 func cloneBirds(arr []Bird) []Bird {
-	deck := make([]Bird, len(arr))
+	deck := make([]Bird, 0)
 	for i := 0; i < len(arr); i++ {
 		deck = append(deck, arr[i].clone())
 	}
@@ -111,7 +111,7 @@ func cloneBirds(arr []Bird) []Bird {
 }
 
 func cloneDice(arr []Dice) []Dice {
-	deck := make([]Dice, len(arr))
+	deck := make([]Dice, 0)
 	for i := 0; i < len(arr); i++ {
 		deck = append(deck, arr[i].clone())
 	}

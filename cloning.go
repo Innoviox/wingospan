@@ -3,10 +3,11 @@ package main
 func (g *Game) clone() *Game {
 	other := new(Game)
 
-	other.players = make([]*Player, len(g.players))
+	other.players = make([]*Player, 0)
 	for i := 0; i < len(g.players); i++ {
 		other.players = append(other.players, g.players[i].clone())
 	}
+
 
 	other.deck = cloneBirds(g.deck)
 	other.tray = cloneBirds(g.tray)

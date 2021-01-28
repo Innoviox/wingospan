@@ -10,7 +10,7 @@ func (p *Player) choosePregame() {
 }
 
 func (p *Player) chooseMove(g *Game) Move {
-	m, _ := p.maximax(g, 0, 3)
+	m, _ := p.maximax(g, 0, 1)
 	return m
 }
 
@@ -26,7 +26,7 @@ func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
 
 		var score int
 		if ply < maxply {
-			_, score = p.maximax(g, ply + 1, maxply)
+			_, score = p.maximax(g, ply + 1, maxply) // todo imperfect information
 		} else {
 			score = p.board.rawScore()
 		}
