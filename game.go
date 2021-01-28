@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"math/rand"
 	"os"
 )
@@ -97,6 +98,7 @@ func (g *Game) drawTray(idx int) Bird {
 		}
 	}
 
+	fmt.Println(g.tray)
 	b := g.tray[idx]
 	g.tray = t
 	return b

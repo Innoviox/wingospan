@@ -20,10 +20,14 @@ func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
 	var bestMove Move
 
 	for _, m := range p.generateMoves(g) {
-		fmt.Println(s, m.t, m.a)
 		state := g.clone()
 		newPlayer := state.getPlayer(p.p_idx)
+
 		m.f(newPlayer, m.a)
+
+		fmt.Println(s, m.t, m.a)
+		fmt.Println(s, "birds", newPlayer.board.r_idxs)
+		fmt.Println("afterplay", newPlayer.board.rows)
 
 		var score int
 		if ply < maxply {

@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Player struct {
 	p_idx int
 	board *Board
@@ -86,6 +88,9 @@ func (p *Player) payEggs(e *Eggs) {
 
 func (p *Player) lay(e Eggs) {
 	for _, loc := range e {
+		fmt.Println(loc, " ", p.board.r_idxs)
+		fmt.Println(p.board.rows[loc[0]])
+		fmt.Println(p.board.rows[loc[0]][loc[1]])
 		p.board.rows[loc[0]][loc[1]].eggs += loc[2]
 	}
 }
