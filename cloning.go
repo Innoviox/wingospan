@@ -89,5 +89,10 @@ func (d Dice) clone() Dice {
 }
 
 func (g *Game) load(other *Game) {
-
+	g.players = other.players
+	g.deck = other.deck
+	g.tray = other.tray
+	g.birdfeeder = other.birdfeeder
+	g.goals = other.goals
+	g.round = other.round
 }
