@@ -8,7 +8,6 @@ func (g *Game) clone() *Game {
 		other.players = append(other.players, g.players[i].clone())
 	}
 
-
 	other.deck = cloneBirds(g.deck)
 	other.tray = cloneBirds(g.tray)
 
@@ -22,6 +21,7 @@ func (g *Game) clone() *Game {
 
 func (p *Player) clone() *Player {
 	other := new(Player)
+	other.p_idx = p.p_idx
 	other.board = p.board.clone()
 
 	other.food = map[Food]int{}

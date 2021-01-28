@@ -29,7 +29,7 @@ type funcArgs struct {
 
 type Move struct {
 	t MoveType
-	f func(funcArgs)
+	f func(*Player, funcArgs)
 	a funcArgs
 }
 
@@ -70,7 +70,7 @@ func (p *Player) generatePregame() []Move {
 
 			moves = append(moves, Move {
 				PreGame,
-				p.pregame,
+				pregame,
 				funcArgs { p: Pregame { birdKeep, foodDiscard, bonusKeep } },
 			})
 		}
@@ -89,7 +89,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 				if p.canPay(f) {
 					moves = append(moves, Move{
 						PlayBird,
-						p.playBird,
+						playBird,
 						funcArgs{g: g, b: b, r: r, f: f},
 					})
 				}
@@ -109,7 +109,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 		moves = append(moves, Move {
 			GainFood,
-			p.gainFood,
+			gainFood,
 			funcArgs { g: g, f: food },
 		})
 	}
@@ -133,7 +133,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 		moves = append(moves, Move {
 			LayEggs,
-			p.layEggs,
+			layEggs,
 			funcArgs { g: g, e: e },
 		})
 	}
@@ -153,14 +153,14 @@ func (p *Player) generateMoves(g *Game) []Move {
 
 			moves = append(moves, Move {
 				DrawCards,
-				p.drawCards,
+				drawCards,
 				funcArgs { g: g, tray: tray, ndeck: nDeck },
 			})
 		}
 	}
 	moves = append(moves, Move {
 		DrawCards,
-		p.drawCards,
+		drawCards,
 		funcArgs { g: g, tray: []int {}, ndeck: nCards },
 	})
 

@@ -15,31 +15,27 @@ func (p *Player) chooseMove(g *Game) Move {
 }
 
 func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
-	fmt.Println(strings.Repeat("\t", ply), "maximaxing", p.board.rawScore())
+	s := strings.Repeat("\t", ply)
 	bestScore := 0
 	var bestMove Move
 
-	state := g.clone()
-
 	for _, m := range p.generateMoves(g) {
-		fmt.Println(strings.Repeat("\t", ply), m.t, m.a)
-		g.doMove(m)
+		fmt.Println(s, m.t, m.a)
+		state := g.clone()
+		newPlayer := state.getPlayer(p.p_idx)
+		m.f(newPlayer, m.a)
 
 		var score int
 		if ply < maxply {
-			_, score = p.maximax(g, ply + 1, maxply) // todo imperfect information
+			_, score = newPlayer.maximax(g, ply + 1, maxply) // todo imperfect information
 		} else {
-			score = p.board.rawScore()
+			score = newPlayer.board.rawScore()
 		}
 
 		if score > bestScore {
 			bestScore = score
 			bestMove = m
 		}
-
-		fmt.Println(strings.Repeat("\t", ply), "found", p.board.rawScore())
-
-		g.load(state)
 	}
 
 	return bestMove, bestScore

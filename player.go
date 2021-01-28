@@ -1,6 +1,7 @@
 package main
 
 type Player struct {
+	p_idx int
 	board *Board
 	food map[Food]int
 	hand []Bird
@@ -9,7 +10,7 @@ type Player struct {
 	score int
 }
 
-func (p *Player) playBird(args funcArgs) {
+func playBird(p *Player, args funcArgs) {
 	p.payFood(args.f)
 	p.payEggs(&args.e)
 
@@ -18,7 +19,7 @@ func (p *Player) playBird(args funcArgs) {
 	p.board.playBird(args.b, args.r)
 }
 
-func (p *Player) gainFood(args funcArgs) {
+func gainFood(p *Player, args funcArgs) {
 	for _, f := range args.f { // todo: if can't gain food, gain random
 	 						   // todo reroll?
 		p.birdfeeder(args.g, f)
@@ -31,7 +32,7 @@ func (p *Player) gainFood(args funcArgs) {
 	p.activate(args.g, Forest)
 }
 
-func (p *Player) layEggs(args funcArgs) {
+func layEggs(p *Player, args funcArgs) {
 	p.lay(args.e)
 
 	if args.discardFood != nil {
@@ -42,7 +43,7 @@ func (p *Player) layEggs(args funcArgs) {
 	p.activate(args.g, Grasslands)
 }
 
-func (p *Player) drawCards(args funcArgs) {
+func drawCards(p *Player, args funcArgs) {
 	for _, i := range args.tray {
 		p.draw([]Bird { args.g.drawTray(i) })
 	}
@@ -127,7 +128,7 @@ type Pregame struct {
 	bonusKeep int // todo
 }
 
-func (p *Player) pregame(f funcArgs) {
+func pregame(p *Player, f funcArgs) {
 	var hand []Bird
 	for _, i := range f.p.birdKeep {
 		hand = append(hand, p.hand[i])

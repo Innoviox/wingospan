@@ -26,6 +26,7 @@ func (g *Game) init(nplayers int) {
 
 	for i := 0; i < nplayers; i++ {
 		g.players = append(g.players, &Player {
+			p_idx: i,
 			board: new(Board),
 			food: map[Food]int {
 				Worm: 1, Seed: 1, Fish: 1, Rodent: 1, Berry: 1,
@@ -101,6 +102,12 @@ func (g *Game) drawTray(idx int) Bird {
 	return b
 }
 
-func (g *Game) doMove(m Move) {
-	m.f(m.a)
+func (g *Game) getPlayer(i int) *Player {
+	for _, p := range g.players {
+		if p.p_idx == i {
+			return p
+		}
+	}
+
+	return nil
 }
