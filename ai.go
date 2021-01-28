@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 func (p *Player) choosePregame() {
 
 }
@@ -16,6 +21,7 @@ func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
 	state := g.clone()
 
 	for _, m := range p.generateMoves(g) {
+		fmt.Println(strings.Repeat("\t", ply), m.t, m.a)
 		g.doMove(m)
 
 		var score int

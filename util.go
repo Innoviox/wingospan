@@ -105,7 +105,7 @@ type Eggs [][3]int // a list of (region, birdn, #eggs)
 func cloneBirds(arr []Bird) []Bird {
 	deck := make([]Bird, len(arr))
 	for i := 0; i < len(arr); i++ {
-		deck[i] = arr[i].clone()
+		deck = append(deck, arr[i].clone())
 	}
 	return deck
 }
@@ -113,7 +113,7 @@ func cloneBirds(arr []Bird) []Bird {
 func cloneDice(arr []Dice) []Dice {
 	deck := make([]Dice, len(arr))
 	for i := 0; i < len(arr); i++ {
-		deck[i] = arr[i].clone()
+		deck = append(deck, arr[i].clone())
 	}
 	return deck
 }

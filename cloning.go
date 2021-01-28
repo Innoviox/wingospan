@@ -5,7 +5,7 @@ func (g *Game) clone() *Game {
 
 	other.players = make([]*Player, len(g.players))
 	for i := 0; i < len(g.players); i++ {
-		other.players[i] = g.players[i].clone()
+		other.players = append(other.players, g.players[i].clone())
 	}
 
 	other.deck = cloneBirds(g.deck)
@@ -80,7 +80,7 @@ func (b Birdfeeder) clone() Birdfeeder {
 func (d Dice) clone() Dice {
 	var upface []Food
 	for i := 0; i < len(d.upface); i++ {
-		upface[i] = d.upface[i]
+		upface = append(upface, d.upface[i])
 	}
 
 	return Dice{
