@@ -3,6 +3,18 @@ package main
 func (g *Game) clone() *Game {
 	other := new(Game)
 
+	other.players = make([]*Player, len(g.players))
+	for i := 0; i < len(g.players); i++ {
+		other.players[i] = g.players[i].clone()
+	}
+
+	other.deck = cloneBirds(g.deck)
+	other.tray = cloneBirds(g.tray)
+
+	other.birdfeeder = g.birdfeeder.clone()
+
+	other.goals = g.goals
+	other.round = g.round
 
 	return other
 }
@@ -11,15 +23,12 @@ func (p *Player) clone() *Player {
 	other := new(Player)
 	other.board = p.board.clone()
 
-	other.food = map[Food]int {}
+	other.food = map[Food]int{}
 	for i := 0; i < 5; i++ {
 		other.food[Food(i)] = p.food[Food(i)]
 	}
 
-	other.hand = make([]Bird, len(p.hand))
-	for i := 0; i < len(p.hand); i++ {
-		other.hand[i] = p.hand[i].clone()
-	}
+	other.hand = cloneBirds(p.hand)
 
 	// todo bonus
 
@@ -31,10 +40,7 @@ func (b *Board) clone() *Board {
 
 	var rows [3][]Bird
 	for i := 0; i < 3; i++ {
-		rows[i] = make([]Bird, len(b.rows[i]))
-		for j, bird := range b.rows[i] {
-			rows[i][j] = bird.clone()
-		}
+		rows[i] = cloneBirds(b.rows[i])
 	}
 
 	var r_idxs [3]int
@@ -49,6 +55,22 @@ func (b *Board) clone() *Board {
 }
 
 func (b Bird) clone() Bird {
+	return Bird{
+		b.name,
+		b.region,
+		b.cost,
+		b.points,
+		b.nest,
+		b.eggLimit,
+		b.eggs,
+		b.wingspan,
+		b.caches,
+		b.tucks,
+		b.action,
+	}
+}
+
+func (b Birdfeeder) clone() Birdfeeder {
 
 }
 

@@ -100,3 +100,11 @@ func parseRegion(s string) []Region {
 }
 
 type Eggs [][3]int // a list of (region, birdn, #eggs)
+
+func cloneBirds(arr []Bird) []Bird {
+	deck := make([]Bird, len(arr))
+	for i := 0; i < len(arr); i++ {
+		deck[i] = arr[i].clone()
+	}
+	return deck
+}
