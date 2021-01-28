@@ -5,7 +5,7 @@ func (p *Player) choosePregame() {
 }
 
 func (p *Player) chooseMove(g *Game) Move {
-	m, _ = p.maximax(g, 0, 3)
+	m, _ := p.maximax(g, 0, 3)
 	return m
 }
 
@@ -33,5 +33,5 @@ func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
 		g.load(state)
 	}
 
-	return (bestMove, bestScore)
+	return bestMove, bestScore
 }

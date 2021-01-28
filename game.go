@@ -100,3 +100,7 @@ func (g *Game) drawTray(idx int) Bird {
 	g.tray = t
 	return b
 }
+
+func (g *Game) doMove(m Move) {
+	m.f(m.a)
+}
