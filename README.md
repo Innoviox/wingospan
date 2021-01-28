@@ -7,6 +7,11 @@ the span of each wing is equal to the go of each span https://stonemaiergames.co
   - no cracks
   - no egg costs
 
+# Idea
+
+- savestate
+
 ## Todo
 
 - minimize array allocations
+
