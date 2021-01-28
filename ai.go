@@ -4,8 +4,8 @@ func (p *Player) choosePregame() {
 
 }
 
-func (p *Player) chooseMove(g *Game) Move {
-	m, _ := p.maximax(g, 0, 5)
+func (p *Player) chooseMove(g *Game, maxply int) Move {
+	m, _ := p.maximax(g, 0, maxply)
 	return m
 }
 

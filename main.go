@@ -22,5 +22,20 @@ func main() {
 	}
 	fmt.Println(p.food)
 
-	fmt.Println(p.chooseMove(game))
+	for i := 0; i < 5; i++ {
+		m := p.chooseMove(game, 3)
+
+		switch m.t {
+		case PlayBird:
+			fmt.Println(m.t.String(), m.a.b, m.a.r, m.a.f)
+		case GainFood:
+			fmt.Println(m.t.String(), m.a.f)
+		case LayEggs:
+			fmt.Println(m.t.String(), m.a.e)
+		case DrawCards:
+			fmt.Println(m.t.String(), m.a.tray, m.a.ndeck)
+		}
+
+		m.f(p, game, m.a)
+	}
 }
