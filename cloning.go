@@ -71,7 +71,21 @@ func (b Bird) clone() Bird {
 }
 
 func (b Birdfeeder) clone() Birdfeeder {
+	return Birdfeeder{
+		cloneDice(b.diceIn),
+		cloneDice(b.diceOut),
+	}
+}
 
+func (d Dice) clone() Dice {
+	var upface []Food
+	for i := 0; i < len(d.upface); i++ {
+		upface[i] = d.upface[i]
+	}
+
+	return Dice{
+		upface,
+	}
 }
 
 func (g *Game) load(other *Game) {

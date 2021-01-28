@@ -101,8 +101,17 @@ func parseRegion(s string) []Region {
 
 type Eggs [][3]int // a list of (region, birdn, #eggs)
 
+// I FUCKING HATE YOU GO. WHAT FUCKING LANGUAGE DOESNT FUCKING HAVE GENERICS. FICK YOU
 func cloneBirds(arr []Bird) []Bird {
 	deck := make([]Bird, len(arr))
+	for i := 0; i < len(arr); i++ {
+		deck[i] = arr[i].clone()
+	}
+	return deck
+}
+
+func cloneDice(arr []Dice) []Dice {
+	deck := make([]Dice, len(arr))
 	for i := 0; i < len(arr); i++ {
 		deck[i] = arr[i].clone()
 	}
