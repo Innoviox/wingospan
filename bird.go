@@ -22,7 +22,9 @@ func (b *Bird) activateBrown(g *Game, p *Player) {
 		return
 	}
 
-	//fmt.Println(b.name, "being activated")
+	if b.action == nil || b.action.cause == nil {
+		return
+	}
 
 	switch b.action.cause.typ {
 	case And:

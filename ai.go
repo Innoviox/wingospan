@@ -15,6 +15,7 @@ func (p *Player) chooseMove(g *Game) Move {
 }
 
 func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
+	fmt.Println(strings.Repeat("\t", ply), "maximaxing", p.board.rawScore())
 	bestScore := 0
 	var bestMove Move
 
@@ -35,6 +36,8 @@ func (p *Player) maximax(g *Game, ply int, maxply int) (Move, int) {
 			bestScore = score
 			bestMove = m
 		}
+
+		fmt.Println(strings.Repeat("\t", ply), "found", p.board.rawScore())
 
 		g.load(state)
 	}
