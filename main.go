@@ -15,7 +15,7 @@ func main() {
 	p := game.players[0]
 
 	pre := p.generatePregame()
-	pregame(p, pre[rand.Intn(len(pre))].a)
+	pregame(p, game, pre[rand.Intn(len(pre))].a)
 
 	for _, b := range p.hand {
 		fmt.Println(b.name, b.cost)

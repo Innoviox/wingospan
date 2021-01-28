@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func (g *Game) clone() *Game {
 	other := new(Game)
 
@@ -45,8 +43,6 @@ func (b *Board) clone() *Board {
 	for i := 0; i < 3; i++ {
 		rows[i] = cloneBirds(b.rows[i])
 	}
-
-	fmt.Println(rows, b.rows)
 
 	var r_idxs [3]int
 	for i := 0; i < 3; i++ {

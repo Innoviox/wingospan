@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Player struct {
 	p_idx int
 	board *Board
@@ -12,7 +10,7 @@ type Player struct {
 	score int
 }
 
-func playBird(p *Player, args funcArgs) {
+func playBird(p *Player, g *Game, args funcArgs) {
 	p.payFood(args.f)
 	p.payEggs(&args.e)
 
@@ -21,20 +19,20 @@ func playBird(p *Player, args funcArgs) {
 	p.board.playBird(args.b, args.r)
 }
 
-func gainFood(p *Player, args funcArgs) {
+func gainFood(p *Player, g *Game, args funcArgs) {
 	for _, f := range args.f { // todo: if can't gain food, gain random
 	 						   // todo reroll?
-		p.birdfeeder(args.g, f)
+		p.birdfeeder(g, f)
 	}
 
 	if args.discardBird != nil {
 		p.discard(args.discardBird)
 	}
 
-	p.activate(args.g, Forest)
+	p.activate(g, Forest)
 }
 
-func layEggs(p *Player, args funcArgs) {
+func layEggs(p *Player, g *Game, args funcArgs) {
 	p.lay(args.e)
 
 	if args.discardFood != nil {
@@ -42,20 +40,19 @@ func layEggs(p *Player, args funcArgs) {
 		p.payFood(f)
 	}
 
-	p.activate(args.g, Grasslands)
+	p.activate(g, Grasslands)
 }
 
-func drawCards(p *Player, args funcArgs) {
-	for _, i := range args.tray {
-		p.draw([]Bird { args.g.drawTray(i) })
-	}
-	p.draw(args.g.draw(args.ndeck))
+func drawCards(p *Player, g *Game, args funcArgs) {
+	p.draw(g.drawTray(args.tray))
+
+	p.draw(g.draw(args.ndeck))
 
 	if args.discardEggs != nil {
 		p.payEggs(args.discardEggs)
 	}
 
-	p.activate(args.g, Waterlands)
+	p.activate(g, Waterlands)
 }
 
 func (p *Player) payFood(food []Food) {
@@ -88,9 +85,6 @@ func (p *Player) payEggs(e *Eggs) {
 
 func (p *Player) lay(e Eggs) {
 	for _, loc := range e {
-		fmt.Println(loc, " ", p.board.r_idxs)
-		fmt.Println(p.board.rows[loc[0]])
-		fmt.Println(p.board.rows[loc[0]][loc[1]])
 		p.board.rows[loc[0]][loc[1]].eggs += loc[2]
 	}
 }
@@ -133,7 +127,7 @@ type Pregame struct {
 	bonusKeep int // todo
 }
 
-func pregame(p *Player, f funcArgs) {
+func pregame(p *Player, g *Game, f funcArgs) {
 	var hand []Bird
 	for _, i := range f.p.birdKeep {
 		hand = append(hand, p.hand[i])

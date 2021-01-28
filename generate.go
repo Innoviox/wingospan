@@ -6,8 +6,6 @@ import (
 )
 
 type funcArgs struct {
-	g *Game
-
 	// play bird
 	b Bird
 	r Region
@@ -29,7 +27,7 @@ type funcArgs struct {
 
 type Move struct {
 	t MoveType
-	f func(*Player, funcArgs)
+	f func(*Player, *Game, funcArgs)
 	a funcArgs
 }
 
@@ -90,7 +88,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 					moves = append(moves, Move{
 						PlayBird,
 						playBird,
-						funcArgs{g: g, b: b, r: r, f: f},
+						funcArgs{ b: b, r: r, f: f },
 					})
 				}
 			}
@@ -110,7 +108,7 @@ func (p *Player) generateMoves(g *Game) []Move {
 		moves = append(moves, Move {
 			GainFood,
 			gainFood,
-			funcArgs { g: g, f: food },
+			funcArgs { f: food },
 		})
 	}
 
@@ -134,18 +132,20 @@ func (p *Player) generateMoves(g *Game) []Move {
 		moves = append(moves, Move {
 			LayEggs,
 			layEggs,
-			funcArgs { g: g, e: e },
+			funcArgs { e: e },
 		})
 	}
 
 	// draw cards
 	nCards := amounts[len(p.board.rows[2])]
-	for nTray := 1; nTray <= 3; nTray++ {
+	for nTray := 1; nTray <= len(g.tray); nTray++ {
 		nDeck := nCards - nTray
 
 		if nDeck < 0 { continue }
 
-		for _, comb := range combinations.Combinations([]string { "0", "1", "2" }, nTray) {
+		strs := []string { "0", "1", "2" }
+
+		for _, comb := range combinations.Combinations(strs[0:len(g.tray)], nTray) {
 			tray := make([]int, nTray)
 			for i, c := range comb {
 				tray[i] = Atoi(c)
@@ -154,14 +154,14 @@ func (p *Player) generateMoves(g *Game) []Move {
 			moves = append(moves, Move {
 				DrawCards,
 				drawCards,
-				funcArgs { g: g, tray: tray, ndeck: nDeck },
+				funcArgs { tray: tray, ndeck: nDeck },
 			})
 		}
 	}
 	moves = append(moves, Move {
 		DrawCards,
 		drawCards,
-		funcArgs { g: g, tray: []int {}, ndeck: nCards },
+		funcArgs { tray: []int {}, ndeck: nCards },
 	})
 
 	return moves

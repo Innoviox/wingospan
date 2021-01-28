@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/csv"
-	"fmt"
 	"math/rand"
 	"os"
 )
@@ -89,19 +88,20 @@ func (g *Game) draw(n int) []Bird {
 	return b
 }
 
-func (g *Game) drawTray(idx int) Bird {
+func (g *Game) drawTray(idxs []int) []Bird {
 	var t []Bird
+	var out []Bird
 
 	for i, b := range g.tray {
-		if i != idx {
+		if contains(idxs, i) {
+			out = append(out, b)
+		} else {
 			t = append(t, b)
 		}
 	}
 
-	fmt.Println(g.tray)
-	b := g.tray[idx]
 	g.tray = t
-	return b
+	return out
 }
 
 func (g *Game) getPlayer(i int) *Player {
