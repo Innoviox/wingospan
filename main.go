@@ -22,7 +22,7 @@ func main() {
 	}
 	fmt.Println(p.food)
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 26; i++ {
 		m := p.chooseMove(game, 3)
 
 		switch m.t {

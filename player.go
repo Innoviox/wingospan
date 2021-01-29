@@ -1,7 +1,10 @@
 package main
 
+import "strings"
+
 type Player struct {
 	p_idx int
+
 	board *Board
 	food map[Food]int
 	hand []Bird
@@ -139,4 +142,22 @@ func pregame(p *Player, g *Game, f funcArgs) {
 	}
 
 	//p.bonus = append([]Bonus{}, p.bonus[f.p.bonusKeep])
+}
+
+func (p *Player) String() string {
+	var br strings.Builder
+
+	// render board
+	for _, row := range p.board.rows {
+		for _, b := range row {
+			
+		}
+	}
+
+	// render food
+	// render hand
+
+	// todo bonus
+
+	return br.String()
 }
