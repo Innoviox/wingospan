@@ -28,7 +28,9 @@ func playBird(p *Player, g *Game, args funcArgs) {
 func gainFood(p *Player, g *Game, args funcArgs) {
 	for _, f := range args.f { // todo: if can't gain food, gain random
 	 						   // todo reroll?
-		p.birdfeeder(g, f)
+	     // todo birdfeeder !!!
+	     p.food[f]++
+		//p.birdfeeder(g, f)
 	}
 
 	if args.discardBird != nil {
