@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -125,4 +127,14 @@ func contains(s []int, e int) bool {
 		}
 	}
 	return false
+}
+
+func mapToString(m map[Food]int) string {
+	b := new(bytes.Buffer)
+	for i := 0; i < 5; i++ {
+		f := Food(i)
+		fmt.Fprintf(b, "%s=\"%d\",", f.String(), m[f])
+	}
+	fmt.Fprintf(b, "\n")
+	return b.String()
 }

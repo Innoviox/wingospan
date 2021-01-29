@@ -71,4 +71,5 @@ func (b *Bird) StringFor(i int) string {
 	case 8:
 		return b.action.String()
 	}
+	return ""
 }

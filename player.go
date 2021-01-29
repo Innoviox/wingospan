@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 type Player struct {
 	p_idx int
@@ -149,12 +152,19 @@ func (p *Player) String() string {
 
 	// render board
 	for _, row := range p.board.rows {
-		for _, b := range row {
-
+		fmt.Fprintf(&br, "-\n")
+		for _, i := range [4]int {0, 2, 5, 8} {
+			for _, b := range row {
+				fmt.Fprintf(&br, b.StringFor(i))
+				fmt.Fprintf(&br, " | ")
+			}
+			fmt.Fprintf(&br, "\n")
 		}
+		fmt.Fprintf(&br, "-\n")
 	}
 
 	// render food
+	fmt.Fprintf(&br, mapToString(p.food))
 	// render hand
 
 	// todo bonus
