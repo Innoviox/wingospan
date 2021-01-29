@@ -18,7 +18,7 @@ const (
 )
 
 func (f Food) String() string {
-	return [...]string{"Worm", "Seed", "Fish", "Rodent", "Berry", "Any"}[f]
+	return [...]string{"W", "S", "F", "R", "B", "A"}[f]
 }
 
 type Nest int // todo
@@ -142,9 +142,9 @@ func mapToString(m map[Food]int) string {
 func displayBirdArray(arr []Bird) string {
 	var br strings.Builder
 
-	for _, i := range [4]int {0, 2, 5, 8} {
+	for _, i := range [4]int {0, 2, 5} {
 		for _, b := range arr {
-			fmt.Fprintf(&br, b.StringFor(i))
+			fmt.Fprintf(&br, "%-28s", b.StringFor(i))
 			fmt.Fprintf(&br, " | ")
 		}
 		fmt.Fprintf(&br, "\n")
