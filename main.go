@@ -25,6 +25,22 @@ func main() {
 	for i := 0; i < 10; i++ {
 		m := p.chooseMove(game, 3)
 
+		moves := p.generateMoves(game)
+		a, b, c, d := 0, 0, 0, 0
+		for _, move := range moves {
+			switch move.t {
+			case PlayBird:
+				a++
+			case GainFood:
+				b++
+			case LayEggs:
+				c++
+			case DrawCards:
+				d++
+			}
+		}
+		fmt.Printf("Found %d %d %d %d\n", a, b, c, d)
+
 		switch m.t {
 		case PlayBird:
 			fmt.Println(m.t.String(), m.a.b, m.a.r, m.a.f)
