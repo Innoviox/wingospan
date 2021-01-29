@@ -153,19 +153,15 @@ func (p *Player) String() string {
 	// render board
 	for _, row := range p.board.rows {
 		fmt.Fprintf(&br, "-\n")
-		for _, i := range [4]int {0, 2, 5, 8} {
-			for _, b := range row {
-				fmt.Fprintf(&br, b.StringFor(i))
-				fmt.Fprintf(&br, " | ")
-			}
-			fmt.Fprintf(&br, "\n")
-		}
+		fmt.Fprintf(&br, displayBirdArray(row))
 		fmt.Fprintf(&br, "-\n")
 	}
 
 	// render food
 	fmt.Fprintf(&br, mapToString(p.food))
+
 	// render hand
+	fmt.Fprintf(&br, displayBirdArray(p.hand))
 
 	// todo bonus
 

@@ -133,8 +133,22 @@ func mapToString(m map[Food]int) string {
 	b := new(bytes.Buffer)
 	for i := 0; i < 5; i++ {
 		f := Food(i)
-		fmt.Fprintf(b, "%s=\"%d\",", f.String(), m[f])
+		fmt.Fprintf(b, "%s=%d,", f.String(), m[f])
 	}
 	fmt.Fprintf(b, "\n")
 	return b.String()
+}
+
+func displayBirdArray(arr []Bird) string {
+	var br strings.Builder
+
+	for _, i := range [4]int {0, 2, 5, 8} {
+		for _, b := range arr {
+			fmt.Fprintf(&br, b.StringFor(i))
+			fmt.Fprintf(&br, " | ")
+		}
+		fmt.Fprintf(&br, "\n")
+	}
+
+	return br.String()
 }
