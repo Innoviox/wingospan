@@ -150,7 +150,7 @@ func (p *Player) String() string {
 	// render board
 	for _, row := range p.board.rows {
 		for _, b := range row {
-			
+
 		}
 	}
 
