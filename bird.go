@@ -7,18 +7,18 @@ import (
 )
 
 type Bird struct { // todo store name types for bonus; images
-	name string
+	name   string
 	region []Region
-	cost Cost
+	cost   Cost
 
-	points int
-	nest Nest
+	points   int
+	nest     Nest
 	eggLimit int
-	eggs int
+	eggs     int
 	wingspan int
 
 	caches int
-	tucks int
+	tucks  int
 
 	action *Action
 }
@@ -32,14 +32,32 @@ func (b *Bird) activateBrown(g *Game, p *Player) {
 		return
 	}
 
-	switch b.action.cause.typ {
-	case And:
-		//for _, t := range b.action.cause.things {
-		//
-		//}
-		break
-	case Or:
-		break
+	if b.action.effect == nil {
+		// then the action is stored in the cause
+	} else {
+		switch b.action.cause.typ {
+		case And:
+			for _, t := range b.action.cause.things {
+				t.activateThing(g, p, b)
+			}
+			break
+		case Or:
+			//choice := p.promptChoice(b.action.cause.things)
+		}
+	}
+}
+
+func (t *Thing) activateThing(g *Game, p *Player, b *Bird) {
+	switch t.typ {
+	case Draw:
+		card = p.promptDraw()
+		
+	case LayEgg:
+		...
+	case LayEggAnother:
+		...
+	case LayEggEach:
+		...
 	}
 }
 

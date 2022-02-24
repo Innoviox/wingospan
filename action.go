@@ -7,6 +7,7 @@ import (
 )
 
 type ActionType int
+
 const (
 	Activated ActionType = iota
 	Play
@@ -14,10 +15,11 @@ const (
 )
 
 func (a ActionType) String() string {
-	return[...]string{"Activated","Play","Once"}[a]
+	return [...]string{"Activated", "Play", "Once"}[a]
 }
 
 type ThingType int
+
 const (
 	Cache ThingType = iota
 	CacheOptional
@@ -55,25 +57,24 @@ const (
 )
 
 func (t ThingType) String() string {
-	return[...]string{"Cache","CacheOptional","Hunt","Tuck","TuckFromDeck","GainFromBirdfeeder","GainAllFromBirdfeeder","GainSupply","PlaySecond","Bonusify","Draw","DrawTray","RepeatBrown","RepeatHunter","LayEgg","LayEggAnother","LayEggAny","LayEggEach","MoveIfRight","RollOutside","PlayersWithFewest","AllPlayers","Trade","DiscardCard","DiscardEgg","DiscardEggAnother","DiscardAtTurnEnd","DiscardFood","LayEggAction","DiscardAnyEgg","PlayBirdAction","GainFoodAction","SuccessfulHunt"}[t]
+	return [...]string{"Cache", "CacheOptional", "Hunt", "Tuck", "TuckFromDeck", "GainFromBirdfeeder", "GainAllFromBirdfeeder", "GainSupply", "PlaySecond", "Bonusify", "Draw", "DrawTray", "RepeatBrown", "RepeatHunter", "LayEgg", "LayEggAnother", "LayEggAny", "LayEggEach", "MoveIfRight", "RollOutside", "PlayersWithFewest", "AllPlayers", "Trade", "DiscardCard", "DiscardEgg", "DiscardEggAnother", "DiscardAtTurnEnd", "DiscardFood", "LayEggAction", "DiscardAnyEgg", "PlayBirdAction", "GainFoodAction", "SuccessfulHunt"}[t]
 }
 
 type Action struct {
-	typ ActionType
-	cause *Things
+	typ    ActionType
+	cause  *Things
 	effect *Things
 }
 
 type Things struct {
 	things []*Thing
-	typ JoinType
+	typ    JoinType
 }
 
 type Thing struct {
 	typ ThingType
 	arg interface{}
 }
-
 
 func readAction(s string) *Action {
 	act := new(Action)
@@ -170,11 +171,13 @@ func (t *Thing) String() string {
 	fmt.Fprintf(&br, "(%s ", t.typ.String())
 
 	switch v := t.arg.(type) {
-	case Food: fmt.Fprintf(&br, v.String()) // why can't i do the thing :(
-	case Nest: fmt.Fprintf(&br, v.String())
-	case Region: fmt.Fprintf(&br, v.String())
-	case int: fmt.Fprintf(&br, "%d", v)
-	case *Thing: fmt.Fprintf(&br, v.String())
+	case Food: // why can't i do the thing :(
+	case Nest:
+	case Region:
+	case *Thing:
+		fmt.Fprintf(&br, v.String())
+	case int:
+		fmt.Fprintf(&br, "%d", v)
 	}
 
 	fmt.Fprintf(&br, ")")
