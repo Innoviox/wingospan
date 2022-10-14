@@ -48,17 +48,17 @@ func (b *Bird) activateBrown(g *Game, p *Player) {
 }
 
 func (t *Thing) activateThing(g *Game, p *Player, b *Bird) {
-	switch t.typ {
-	case Draw:
-		card = p.promptDraw()
-		
-	case LayEgg:
-		...
-	case LayEggAnother:
-		...
-	case LayEggEach:
-		...
-	}
+	//switch t.typ {
+	//case Draw:
+	//	//card = p.promptDraw()
+	//
+	//case LayEgg:
+	//	...
+	//case LayEggAnother:
+	//	...
+	//case LayEggEach:
+	//	...
+	//}
 }
 
 func (b *Bird) StringFor(i int) string {

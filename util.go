@@ -8,6 +8,7 @@ import (
 )
 
 type Food int
+
 const (
 	Worm Food = iota
 	Seed
@@ -32,10 +33,11 @@ const (
 )
 
 func (n Nest) String() string {
-	return[...]string{"Platform","Cup","Rocks","Canada","Star","None"}[n]
+	return [...]string{"Platform", "Cup", "Rocks", "Canada", "Star", "None"}[n]
 }
 
 type Region int
+
 const ( // todo right names
 	Forest Region = iota
 	Grasslands
@@ -43,20 +45,22 @@ const ( // todo right names
 )
 
 func (r Region) String() string {
-	return[...]string{"Forest","Grasslands","Waterlands"}[r]
+	return [...]string{"Forest", "Grasslands", "Waterlands"}[r]
 }
 
 type JoinType int
+
 const (
 	And JoinType = iota
 	Or
 )
 
 func (j JoinType) String() string {
-	return[...]string{"And","Or",")"}[j]
+	return [...]string{"And", "Or", ")"}[j]
 }
 
 type MoveType int
+
 const (
 	PlayBird MoveType = iota
 	GainFood
@@ -66,7 +70,7 @@ const (
 )
 
 func (m MoveType) String() string {
-	return[...]string{"PlayBird","GainFood","LayEggs","DrawCards","PreGame"}[m]
+	return [...]string{"PlayBird", "GainFood", "LayEggs", "DrawCards", "PreGame"}[m]
 }
 
 func Atoi(s string) int {
@@ -142,7 +146,7 @@ func mapToString(m map[Food]int) string {
 func displayBirdArray(arr []Bird) string {
 	var br strings.Builder
 
-	for _, i := range [4]int {0, 2, 5} {
+	for _, i := range [4]int{0, 2, 5, 8} {
 		for _, b := range arr {
 			fmt.Fprintf(&br, "%-28s", b.StringFor(i))
 			fmt.Fprintf(&br, " | ")

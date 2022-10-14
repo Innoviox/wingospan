@@ -15,3 +15,6 @@ the span of each wing is equal to the go of each span https://stonemaiergames.co
 
 - minimize array allocations
 
+# How to Run
+
+- go build && ./wingospan
