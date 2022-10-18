@@ -143,6 +143,14 @@ func mapToString(m map[Food]int) string {
 	return b.String()
 }
 
+func arrToString(m []Region) []string {
+	b := make([]string, len(m))
+	for i := 0; i < len(m); i++ {
+		b[i] = m[i].String()
+	}
+	return b
+}
+
 func displayBirdArray(arr []Bird) string {
 	var br strings.Builder
 
