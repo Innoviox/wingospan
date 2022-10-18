@@ -172,8 +172,11 @@ func (t *Thing) String() string {
 
 	switch v := t.arg.(type) {
 	case Food: // why can't i do the thing :(
+		fmt.Fprintf(&br, v.String())
 	case Nest:
+		fmt.Fprintf(&br, v.String())
 	case Region:
+		fmt.Fprintf(&br, v.String())
 	case *Thing:
 		fmt.Fprintf(&br, v.String())
 	case int:

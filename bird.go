@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -77,15 +76,15 @@ func (b *Bird) StringFor(i int) string {
 	case 2:
 		return b.cost.String()
 	case 3:
-		return strconv.Itoa(b.points)
+		return fmt.Sprintf("Points: %d", b.points)
 	case 4:
 		return b.nest.String()
 	case 5:
-		return fmt.Sprintf("%d/%d", b.eggs, b.eggLimit)
+		return fmt.Sprintf("Eggs: %d/%d", b.eggs, b.eggLimit)
 	case 6:
-		return strconv.Itoa(b.wingspan)
+		return fmt.Sprintf("Wingspan: %d", b.wingspan)
 	case 7:
-		return fmt.Sprintf("%d, %d", b.caches, b.tucks)
+		return fmt.Sprintf("Caches: %d, Tucks: %d", b.caches, b.tucks)
 	case 8:
 		return b.action.String()
 	}

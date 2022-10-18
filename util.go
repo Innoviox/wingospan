@@ -146,9 +146,9 @@ func mapToString(m map[Food]int) string {
 func displayBirdArray(arr []Bird) string {
 	var br strings.Builder
 
-	for _, i := range [4]int{0, 2, 5, 8} {
+	for _, i := range [9]int{0, 1, 2, 3, 4, 5, 6, 7, 8} {
 		for _, b := range arr {
-			fmt.Fprintf(&br, "%-28s", b.StringFor(i))
+			fmt.Fprintf(&br, "%-65s", b.StringFor(i))
 			fmt.Fprintf(&br, " | ")
 		}
 		fmt.Fprintf(&br, "\n")
