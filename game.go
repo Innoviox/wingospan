@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"math/rand"
 	"os"
+	"time"
 )
 
 type Game struct {
@@ -20,15 +21,17 @@ type Game struct {
 }
 
 func (g *Game) init(nplayers int) {
+	rand.Seed(time.Now().Unix())
+
 	g.loadDeck()
 
 	g.tray = g.draw(3)
 
 	for i := 0; i < nplayers; i++ {
-		g.players = append(g.players, &Player {
+		g.players = append(g.players, &Player{
 			p_idx: i,
 			board: new(Board),
-			food: map[Food]int {
+			food: map[Food]int{
 				Worm: 1, Seed: 1, Fish: 1, Rodent: 1, Berry: 1,
 			},
 			hand: g.draw(5),
@@ -36,15 +39,14 @@ func (g *Game) init(nplayers int) {
 		})
 	}
 
-	g.birdfeeder = Birdfeeder {
-		diceIn: []Dice { Die(), Die(), Die(), Die(), Die() },
-		diceOut: []Dice {},
+	g.birdfeeder = Birdfeeder{
+		diceIn:  []Dice{Die(), Die(), Die(), Die(), Die()},
+		diceOut: []Dice{},
 	}
 
 	g.chooseGoals()
 
 	// todo goals
-	// todo shuffle deck
 }
 
 func (g *Game) loadDeck() {
@@ -60,7 +62,7 @@ func (g *Game) loadDeck() {
 			continue
 		}
 
-		g.deck = append(g.deck, Bird {
+		g.deck = append(g.deck, Bird{
 			name:     line[0],
 			region:   parseRegion(line[1]),
 			cost:     readCost(line[2]),
