@@ -9,8 +9,8 @@ type Player struct {
 	p_idx int
 
 	board *Board
-	food map[Food]int
-	hand []Bird
+	food  map[Food]int
+	hand  []Bird
 	bonus []Bonus
 
 	score int
@@ -27,9 +27,9 @@ func playBird(p *Player, g *Game, args funcArgs) {
 
 func gainFood(p *Player, g *Game, args funcArgs) {
 	for _, f := range args.f { // todo: if can't gain food, gain random
-	 						   // todo reroll?
-	     // todo birdfeeder !!!
-	     p.food[f]++
+		// todo reroll?
+		// todo birdfeeder !!!
+		p.food[f]++
 		//p.birdfeeder(g, f)
 	}
 
@@ -44,7 +44,7 @@ func layEggs(p *Player, g *Game, args funcArgs) {
 	p.lay(args.e)
 
 	if args.discardFood != nil {
-		f := []Food { *args.discardFood }
+		f := []Food{*args.discardFood}
 		p.payFood(f)
 	}
 
@@ -70,7 +70,8 @@ func (p *Player) payFood(food []Food) {
 }
 
 func (p *Player) canPay(food []Food) bool {
-	totals := map[Food]int {}
+	// todo 2 foods = 1 food
+	totals := map[Food]int{}
 
 	for _, f := range food {
 		totals[f]++
@@ -124,15 +125,15 @@ func (p *Player) draw(cards []Bird) {
 
 func (p *Player) activate(g *Game, r Region) {
 	for i := p.board.r_idxs[r]; i > 0; i-- {
-		p.board.rows[r][i - 1].activateBrown(g, p)
+		p.board.rows[r][i-1].activateBrown(g, p)
 	}
 }
 
 // Mark: Move generation methods
 type Pregame struct {
-	birdKeep []int
+	birdKeep    []int
 	foodDiscard []Food
-	bonusKeep int // todo
+	bonusKeep   int // todo
 }
 
 func pregame(p *Player, g *Game, f funcArgs) {

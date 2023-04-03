@@ -8,7 +8,7 @@ import (
 func main() {
 
 	game := new(Game)
-	game.init(5)
+	game.init(1)
 
 	p := game.players[0]
 
@@ -22,4 +22,5 @@ func main() {
 
 	fmt.Println(displayBirdArray(p.hand))
 
+	game.start()
 }

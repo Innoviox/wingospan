@@ -144,10 +144,10 @@ func parseThing(s string) *Thing {
 func (a *Action) String() string {
 	var br strings.Builder
 
-	fmt.Fprintf(&br, "%s %s ", a.typ.String(), a.cause.String())
+	fmt.Fprintf(&br, "%s Cause: %s ", a.typ.String(), a.cause.String())
 
 	if a.effect != nil {
-		fmt.Fprintf(&br, "%s", a.effect.String())
+		fmt.Fprintf(&br, "Effect: %s", a.effect.String())
 	}
 
 	return br.String()

@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"math/rand"
 	"os"
 	"time"
@@ -114,4 +115,13 @@ func (g *Game) getPlayer(i int) *Player {
 	}
 
 	return nil
+}
+
+func (g *Game) start() {
+	for _, p := range g.players {
+		possibleMoves := p.generateMoves(g)
+		for i, m := range possibleMoves {
+			fmt.Fprintf(os.Stdout, "%d %s\n", i, m.String())
+		}
+	}
 }
